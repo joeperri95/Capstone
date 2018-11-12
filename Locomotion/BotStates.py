@@ -1,0 +1,13 @@
+#Sneaky way of implementing enum in python
+
+IDLE = 0
+BASED = 1
+MOTION = 2
+BARCODE_DETECTED = 3
+WAITING_FOR_CUP = 4
+DISPENSING = 5
+WAITING_FOR_RETRIEVAL = 6
+ALERT = 7
+
+LINE_LOST = -1
+

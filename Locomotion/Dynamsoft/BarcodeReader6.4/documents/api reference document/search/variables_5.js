@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['iangle',['iAngle',['../structtag_s_localization_result.html#ae8f11da859d1c8f848750e34463a9072',1,'tagSLocalizationResult']]],
+  ['iconfidence',['iConfidence',['../structtag_s_extended_result.html#af9a5539e46e1dea78a0b2da0ccce3898',1,'tagSExtendedResult']]],
+  ['imodulesize',['iModuleSize',['../structtag_s_localization_result.html#a6ea78256622de084200d5af478fb6a0a',1,'tagSLocalizationResult']]],
+  ['ipagenumber',['iPageNumber',['../structtag_s_localization_result.html#aacb380049db399096c2c511d29760bc2',1,'tagSLocalizationResult']]],
+  ['ipf_5fargb_5f8888',['IPF_ARGB_8888',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a241d9c0b0c779d6a683e91aa9a264acc',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5fbinary',['IPF_Binary',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a1b50c1304f71229d38e3a291d367beec',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5fbinaryinverted',['IPF_BinaryInverted',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a1c0791c463bc231b810ecc00315fec83',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5fgrayscaled',['IPF_GrayScaled',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a36bc829b0aebbea0123298380cca0649',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5fnv21',['IPF_NV21',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a698f9ed32b0f298d201bd8d010e3b84b',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5frgb_5f555',['IPF_RGB_555',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a8fd8fcf820421c51b3b02b59420e9d5c',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5frgb_5f565',['IPF_RGB_565',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#ac8e396fa2fb193c9cdc7dee5dd4f19fa',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ipf_5frgb_5f888',['IPF_RGB_888',['../classcom_1_1dynamsoft_1_1barcode_1_1_enum_image_pixel_format.html#a250cb8d4dd435344cdf10af56292db4f',1,'com::dynamsoft::barcode::EnumImagePixelFormat']]],
+  ['ix1',['iX1',['../structtag_s_localization_result.html#a19a5253b8e723e1e74e728b9e8a31e6e',1,'tagSLocalizationResult']]],
+  ['ix2',['iX2',['../structtag_s_localization_result.html#af07ef237b0991a1b14457b798cab17d3',1,'tagSLocalizationResult']]],
+  ['ix3',['iX3',['../structtag_s_localization_result.html#a51ef6ff065fbf2d008b133f536dec390',1,'tagSLocalizationResult']]],
+  ['ix4',['iX4',['../structtag_s_localization_result.html#a7f217b3c61a6c2600237855dede11b72',1,'tagSLocalizationResult']]],
+  ['iy1',['iY1',['../structtag_s_localization_result.html#aec4c3ab7948bd69bd09cd1be0e17a9e2',1,'tagSLocalizationResult']]],
+  ['iy2',['iY2',['../structtag_s_localization_result.html#a09fdb8183238e72a5aa4dea9e6770bcf',1,'tagSLocalizationResult']]],
+  ['iy3',['iY3',['../structtag_s_localization_result.html#a63ac8a477a86a1a96389f9686fea4ccf',1,'tagSLocalizationResult']]],
+  ['iy4',['iY4',['../structtag_s_localization_result.html#a97e3cd166e27e897fd180359be2246d5',1,'tagSLocalizationResult']]]
+];

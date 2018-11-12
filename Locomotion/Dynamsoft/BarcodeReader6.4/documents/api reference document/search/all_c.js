@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['oned',['OneD',['../group___enumerations.html#ggad6b7de62a961765ddce74291dbf9aefaac05e01ba0050e8ab1eb3c9b00fa744ca',1,'Dynamsoft::Barcode']]],
+  ['outputlicensetostring',['OutputLicenseToString',['../class_dynamsoft_1_1_barcode_1_1_barcode_reader.html#ab7ce0a26495b2dd0a1cd210b5eac3d0c',1,'Dynamsoft.Barcode.BarcodeReader.OutputLicenseToString()'],['../class_c_barcode_reader.html#aec7e24fc289dfc51dd545d568acc56a6',1,'CBarcodeReader::OutputLicenseToString()']]],
+  ['outputsettingstofile',['outputSettingsToFile',['../classcom_1_1dynamsoft_1_1barcode_1_1_barcode_reader.html#ae20626c0ae60ce65da0180d841a71bfa',1,'com.dynamsoft.barcode.BarcodeReader.outputSettingsToFile()'],['../class_dynamsoft_1_1_barcode_1_1_barcode_reader.html#a7b29a02f9d5359c0b27fd3fa66eb4a7e',1,'Dynamsoft.Barcode.BarcodeReader.OutputSettingsToFile()'],['../class_c_barcode_reader.html#a1adf8b7f850f40d3029b3dbe1cf8f4d9',1,'CBarcodeReader::OutputSettingsToFile()']]],
+  ['outputsettingstostring',['OutputSettingsToString',['../class_dynamsoft_1_1_barcode_1_1_barcode_reader.html#a9e667a5f1a24dae168b5aa58fce2e7f9',1,'Dynamsoft.Barcode.BarcodeReader.OutputSettingsToString()'],['../class_c_barcode_reader.html#a8cf73adcd3e00ea3d5833b8cac65a106',1,'CBarcodeReader::OutputSettingsToString()'],['../classcom_1_1dynamsoft_1_1barcode_1_1_barcode_reader.html#aa3290d35a663b7d33255d5595fa50e0d',1,'com.dynamsoft.barcode.BarcodeReader.outputSettingsToString()']]]
+];

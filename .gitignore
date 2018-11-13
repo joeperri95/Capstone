@@ -1,2 +1,9 @@
 
+#don't commit hidden files
+.*
+
+#except gitignore
+!.gitignore
+
+#this is annoying and unnecessary
 *__pycache__*

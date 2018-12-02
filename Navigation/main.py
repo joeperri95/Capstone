@@ -2,13 +2,17 @@
 
 import Bot
 import cv2
+import queue
+import threading
 
 cam = cv2.VideoCapture(0)
 
-b = Bot.Bot(cam)
+a = queue.Queue()
+
+b = Bot.Bot(cam, a)
 
 while(True):
-
+    
     b.determineOutput()
     cv2.imshow("frame",b.frame)
 

@@ -14,5 +14,6 @@ Members
 Dependencies
 =============
 
+* Python 3.6
 * OpenCV
 * numpy

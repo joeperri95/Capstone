@@ -3,6 +3,7 @@ import cv2
 import subprocess
 import os
 import pathlib
+import locations
 
 def nothing():
     '''

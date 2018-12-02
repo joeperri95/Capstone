@@ -1,16 +1,17 @@
 #!/usr/bin/env python3.6
 
-import BotStates
-import locations
+from . import BotStates
+from . import locations
 import cv2
 import sys
 import os
-import utils
+from . import utils
 import time
 import numpy as np
+import queue
 
 class Bot:
-    def __init__(self, cam):
+    def __init__(self, cam, queue):
         '''
         cam = cv2 capture object
         '''
@@ -22,14 +23,17 @@ class Bot:
         
         #doesn't know where it is on bootup assume base
         self.location = locations.BASE
-        self.destination = self.location
+        self.destinations = []
 
         #for use in time critical situations
         self.currentTime = 0
-        
+        self.MessageQueue = queue
+
         _, frame = cam.read()
         self.h, self.w = frame.shape[:2]
-        self.determineOutput()
+        
+        #call this as a thread
+        #self.determineOutput()
         
     
     def isEmpty(self):
@@ -134,167 +138,168 @@ class Bot:
         else:
             return False  
 
-        
+    
+    def pollMessageQueue(self):
+        if(self.MessageQueue.empty()):
+            return
+        else:
+            location, order = self.MessageQueue.get()
+            
+
     def determineOutput(self):
         '''
         Main logic where actions are performed and state is determined
         '''
-
-        self.update()
-
-        if(self.state == BotStates.IDLE):
-            self.prevState = self.state
-            self.state = BotStates.BASED
-        
-        elif(self.state == BotStates.BASED):
+        while(True):
             
-            #Wait for order from HMI
-            
-            # dest = checkHMI()
-            # if dest != -1
-            #   self.destination = dest
-            #   self.prevState = self.state
-            #   self.state = BotStates.MOTION
-            # else:
-            #   time.sleep(DELAY)
-            
-            pass
+            self.pollMessageQueue()
+            self.update()
 
-        elif(self.state == BotStates.MOTION):
+            if(self.state == BotStates.IDLE):
+                if(self.destinations == None):
+                    pass
+                else:
+                    self.prevState = self.state
+                    self.state = BotStates.MOTION
             
-            #TODO store the limits as variables
-            #TODO implement some kind of PID or PI control
 
-            #if moment is at an extreme turn the robot
-            if(self.center[0] > int(self.w * 0.75)):
-                #motor1 = fullspeed
-                #motor2 = off
-                pass
-            elif(self.center[0] < int(self.w * 0.25)):
-                #motor1 = off
-                #motor2 = fullspeed
-                pass
-            else:
-                #motor1 = fullspeed
-                #motor2 = fullspeed
-                pass
-            pass
-
-            if(self.scanBarcode()):
-                #if robot was just at a station ignore the barcode
+            elif(self.state == BotStates.MOTION):
                 
-                #this might be expensive look for workaround
+                #TODO store the limits as variables
+                #TODO implement some kind of PID or PI control
 
+                #if moment is at an extreme turn the robot
+                if(self.center[0] > int(self.w * 0.75)):
+                    #motor1 = fullspeed
+                    #motor2 = off
+                    pass
+                elif(self.center[0] < int(self.w * 0.25)):
+                    #motor1 = off
+                    #motor2 = fullspeed
+                    pass
+                else:
+                    #motor1 = fullspeed
+                    #motor2 = fullspeed
+                    pass
+                pass
+
+                if(self.scanBarcode()):
+                    #if robot was just at a station ignore the barcode
+                    
+                    #this might be expensive look for workaround
+
+                    cv2.imwrite("temp.png",self.frame)
+                    code = utils.getBarcodeResults("temp.png")
+                    os.remove("temp.png")
+
+                    if(code == self.location):
+                        pass
+                    else:
+                        self.prevState = self.state
+                        self.state = BotStates.BARCODE_DETECTED
+
+            elif(self.state == BotStates.BARCODE_DETECTED):
+                
                 cv2.imwrite("temp.png",self.frame)
                 code = utils.getBarcodeResults("temp.png")
                 os.remove("temp.png")
 
-                if(code == self.location):
-                    pass
+                #TODO error handling on the barcode
+                self.location = code
+
+
+                if(self.location == self.destinations[0]):
+                    self.prevState = self.state
+                    self.destinations.remove(self.destinations[0])
+                    self.state = BotStates.WAITING_FOR_CUP
                 else:
                     self.prevState = self.state
-                    self.state = BotStates.BARCODE_DETECTED
+                    self.state = BotStates.MOTION
 
-        elif(self.state == BotStates.BARCODE_DETECTED):
+                pass
+
+            elif(self.state == BotStates.WAITING_FOR_CUP):
+                
+                TIMEOUT = 3000
+                
+                if(self.currentTime == 0):
+                    self.startTime = time.time()
+                    self.currentTime = time.time()
+                    diff = self.currentTime - self.startTime
+                else:
+                    self.currentTime = time.time()
+                    diff = self.currentTime - self.startTime
+
+                #If some sensor detects cup is taken
+                #TODO make sensor manager class
+
+                #if( CUP IS GIVEN ):
+                #    self.currentTime = 0
+                #    self.startTime = 0
+                #    self.prevState = self.state
+                #    self.state = BotStates.DISPENSING
+
+                if(diff > TIMEOUT):
+                    self.currentTime = 0
+                    self.startTime = 0
+                    self.prevState = self.state
+                    #Later sucker
+                    self.state = BotStates.MOTION
             
-            cv2.imwrite("temp.png",self.frame)
-            code = utils.getBarcodeResults("temp.png")
-            os.remove("temp.png")
+            elif(self.state == BotStates.DISPENSING):
+                
+                #dispense the liquid with GPIO
+                #wait or make blocking call
 
-            #TODO error handling on the barcode
-            self.location = code
-
-
-            if(self.location == self.destination):
                 self.prevState = self.state
-                self.state = BotStates.WAITING_FOR_CUP
-            else:
-                self.prevState = self.state
-                self.state = BotStates.MOTION
+                self.state = BotStates.WAITING_FOR_RETRIEVAL
+                
 
-            pass
+            elif(self.state == BotStates.WAITING_FOR_RETRIEVAL):
+                
+                TIMEOUT = 3000
+                
+                if(self.currentTime == 0):
+                    self.startTime = time.time()
+                    self.currentTime = time.time()
+                    diff = self.currentTime - self.startTime
+                else:
+                    self.currentTime = time.time()
+                    diff = self.currentTime - self.startTime
 
-        elif(self.state == BotStates.WAITING_FOR_CUP):
-            
-            TIMEOUT = 3000
-            
-            if(self.currentTime == 0):
-                self.startTime = time.time()
-                self.currentTime = time.time()
-                diff = self.currentTime - self.startTime
-            else:
-                self.currentTime = time.time()
-                diff = self.currentTime - self.startTime
+                #If some sensor detects cup is taken
+                
+                #if( CUP IS TAKEN )
+                #    self.currentTime = 0
+                #    self.startTime = 0
+                #    self.prevState = self.state
+                #    if(self.destinations == None):
+                #        self.state == BotStates.IDLE
+                #    else:
+                #       self.state = BotStates.MOTION
 
-            #If some sensor detects cup is taken
-            #TODO make sensor manager class
+                if(diff > TIMEOUT):
+                    self.currentTime = 0
+                    self.startTime = 0
+                    self.prevState = self.state
+                    self.state = BotStates.ALERT
 
-            #if( CUP IS GIVEN ):
-            #    self.currentTime = 0
-            #    self.startTime = 0
-            #    self.prevState = self.state
-            #    self.state = BotStates.DISPENSING
+            
+            elif(self.state == BotStates.ALERT):
+                
+                #play tone or flash LEDs somehow
+                #need to look into pi compatible media
+                
+                self.prevState = self.state 
+                self.state = BotStates.WAITING_FOR_RETRIEVAL
 
-            if(diff > TIMEOUT):
-                self.currentTime = 0
-                self.startTime = 0
-                self.prevState = self.state
-                #Later sucker
-                self.state = BotStates.MOTION
-        
-        elif(self.state == BotStates.DISPENSING):
-            
-            #dispense the liquid with GPIO
-            #wait or make blocking call
+            elif(self.state == BotStates.LINE_LOST):
+                
+                #What do we do in this situation?
+                print("line lost")
 
-            self.prevState = self.state
-            self.state = BotStates.WAITING_FOR_RETRIEVAL
-            
-
-        elif(self.state == BotStates.WAITING_FOR_RETRIEVAL):
-            
-            TIMEOUT = 3000
-            
-            if(self.currentTime == 0):
-                self.startTime = time.time()
-                self.currentTime = time.time()
-                diff = self.currentTime - self.startTime
-            else:
-                self.currentTime = time.time()
-                diff = self.currentTime - self.startTime
-
-            #If some sensor detects cup is taken
-            
-            #if( CUP IS TAKEN )
-            #    self.currentTime = 0
-            #    self.startTime = 0
-            #    self.prevState = self.state
-            #    self.state = BotStates.MOTION
-            #    self.destination = locations.BASE   
-            
-
-            if(diff > TIMEOUT):
-                self.currentTime = 0
-                self.startTime = 0
-                self.prevState = self.state
-                self.state = BotStates.ALERT
-
-        
-        elif(self.state == BotStates.ALERT):
-            
-            #play tone or flash LEDs somehow
-            #need to look into pi compatible media
-            
-            self.prevState = self.state 
-            self.state = BotStates.WAITING_FOR_RETRIEVAL
-
-        elif(self.state == BotStates.LINE_LOST):
-            
-            #What do we do in this situation?
-            print("line lost")
-
-            sys.exit(-1)
-            
+                sys.exit(-1)
+                
 
 
 

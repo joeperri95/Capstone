@@ -1,7 +1,7 @@
 Bartender Robot
 ===============
 
-Final year capstone design project for Elec Eng 4OI6 
+Final year capstone design project for Elec Eng 4OI6
 
 Members
 -------
@@ -17,3 +17,4 @@ Dependencies
 * Python 3.6
 * OpenCV
 * numpy
+* gpiozero

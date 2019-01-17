@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>ROBOSERVE</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+
+<body>
+  <div class="page-background">
+    <div class="cta container rounded text-center text-white">
+      <blockquote class="blockquote">
+        <h1 class="display-1 mb-0">ROBOSERVE</h1>
+        <footer class="blockquote-footer text-white text-right">The Next Generation Bar Experience</footer>
+      </blockquote>
+      <form class="form-inline justify-content-center" id="orderForm">
+        <label class="sr-only" for="FirstName">First Name</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First">
+        <label class="sr-only" for="FirstName">Last Name</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last">
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink" placeholder="Drink">
+          <option hidden>Drink</option>
+          <option>Orannge Juice</option>
+          <option>Ginger Ale</option>
+          <option>Mimosa</option>
+        </select>
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Station" placeholder="Station">
+          <option hidden>Station</option>
+          <option>Station 1</option>
+          <option>Station 2</option>
+        </select>
+        <button type="submit" class="btn btn-primary mb-sm-2 mr-sm-2">Submit Order</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

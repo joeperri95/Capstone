@@ -1,8 +1,8 @@
 import gpiozero
 
 # drill motor pin setup
-elevator = gpiozero.PWMOutputDevice(pin=16)
-direction = gpiozero.DigitalOutputDevice(pin=18)
+elevator = gpiozero.PWMOutputDevice(pin=04)
+direction = gpiozero.DigitalOutputDevice(pin=24)
 
 
 def elevatorUp:

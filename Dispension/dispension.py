@@ -1,9 +1,9 @@
 import gpiozero
 
 # setup of inputs and outputs
-levelSensor = gpiozero.DigitalInputDevice(pin=11, bounce_time=0.05)
-pump1 = gpiozero.DigitalOutputDevice(13)  # Oramge Juice
-pump2 = gpiozero.DigitalOutputDevice(15)  # Ginger Ale
+levelSensor = gpiozero.DigitalInputDevice(pin=17, bounce_time=0.05)
+pump1 = gpiozero.DigitalOutputDevice(27)  # Oramge Juice
+pump2 = gpiozero.DigitalOutputDevice(22)  # Ginger Ale
 
 
 def orangejuice:

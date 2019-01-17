@@ -1,0 +1,12 @@
+.page-background {
+        background: url("https://negativespace.co/wp-content/uploads/2019/01/negative-space-black-sand-beach-with-ocean-cliffs-944x708.jpg") no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .cta {
+        position: relative;
+        top: 35%;
+        transform: translateY(-35%);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 5rem;
+    }

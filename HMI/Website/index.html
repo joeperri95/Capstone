@@ -3,6 +3,10 @@
 <title>ROBOSERVE</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="order.js"></script>
 
 <body>
   <div class="page-background">
@@ -16,19 +20,26 @@
         <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First">
         <label class="sr-only" for="FirstName">Last Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last">
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink" placeholder="Drink">
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink">
           <option hidden>Drink</option>
-          <option>Orannge Juice</option>
-          <option>Ginger Ale</option>
-          <option>Mimosa</option>
+          <option value = "1">Orannge Juice</option>
+          <option value = "2">Ginger Ale</option>
+          <option value = "3">Mimosa</option>
         </select>
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Station" placeholder="Station">
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Station">
           <option hidden>Station</option>
-          <option>Station 1</option>
-          <option>Station 2</option>
+          <option value="1">Station 1</option>
+          <option value="2">Station 2</option>
         </select>
-        <button type="submit" class="btn btn-primary mb-sm-2 mr-sm-2">Submit Order</button>
+        <button type="button" class="btn btn-primary mb-sm-2 mr-sm-2" id="myBtn">Submit Order</button>
       </form>
+
+    <div class="alert alert-success collapse" id = "successAlert">
+    Order Placed! Your drink is on the way!
+  </div>
+  <div class="alert alert-danger collapse" id="failedAlert">
+  You mis-entered information. Please Try again
+  </div>
     </div>
   </div>
 </body>

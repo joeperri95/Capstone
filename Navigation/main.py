@@ -14,10 +14,10 @@ b = Bot.Bot(cam, a)
 while(True):
     
     b.determineOutput()
-    cv2.imshow("frame",b.frame)
-
-
     keyPressed  = cv2.waitKey(2) & 0xFF
 
     if(keyPressed == ord('q')):
         break
+
+cam.release()
+cv2.destroyAllWindows()

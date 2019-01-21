@@ -2,11 +2,11 @@
 <html>
 <title>ROBOSERVE</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="order.js"></script>
+<script src= "{{ url_for('static' , filename = 'order.js') }}"></script>
 
 <body>
   <div class="page-background">
@@ -15,23 +15,23 @@
         <h1 class="display-1 mb-0">ROBOSERVE</h1>
         <footer class="blockquote-footer text-white text-right">The Next Generation Bar Experience</footer>
       </blockquote>
-      <form class="form-inline justify-content-center" id="orderForm">
+      <form action="" class="form-inline justify-content-center" id="orderForm" method="post">
         <label class="sr-only" for="FirstName">First Name</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First" name = "firstname" value={{request.form.firstname}}>
         <label class="sr-only" for="FirstName">Last Name</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last">
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last" name = "lastname" value={{request.form.lastname}}>
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink" name="drink" value= {{request.form.drink}}>
           <option hidden>Drink</option>
-          <option value = "1">Orannge Juice</option>
+          <option value = "1">Orange Juice</option>
           <option value = "2">Ginger Ale</option>
           <option value = "3">Mimosa</option>
         </select>
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Station">
+        <select class="custom-select mb-sm-2 mr-sm-2" id="Station" name="station" value = {{request.form.station}}>
           <option hidden>Station</option>
           <option value="1">Station 1</option>
           <option value="2">Station 2</option>
         </select>
-        <button type="button" class="btn btn-primary mb-sm-2 mr-sm-2" id="myBtn">Submit Order</button>
+        <button type="submit button" class="btn btn-primary mb-sm-2 mr-sm-2" id="myBtn" value = "Login">Submit Order</button>
       </form>
 
     <div class="alert alert-success collapse" id = "successAlert">

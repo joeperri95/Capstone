@@ -1,11 +1,11 @@
 #!/usr/bin/env python3.6
 
-from . import BotStates
-from . import locations
+import BotStates
+import locations
 import cv2
 import sys
 import os
-from . import utils
+import utils
 import time
 import numpy as np
 import queue
@@ -57,9 +57,14 @@ class Bot:
             _, thresh = cv2.threshold(self.blur, 127, 255, 0)
             _ ,self.contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
+            c = self.frame.__copy__()
+            cv2.drawContours(c, self.contours, -1, (255,255,0))
+            cv2.imshow('frame1', c)
+
             self.updateCenter()
 
-        except TypeError:
+        except TypeError as e:
+            print(e)
             print("frame is empty")
             sys.exit(-1)
         
@@ -107,14 +112,10 @@ class Bot:
         (_, thresh1) = cv2.threshold(blurred, mean, maxVal, cv2.THRESH_BINARY)
         (_, thresh2) = cv2.threshold(blurred, mean+stddev, maxVal, cv2.THRESH_BINARY)
         
-        # Kernel created
+        #create and apply kernel
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
-        
-        # Kernel applied to the image with opening and closing algorithms
         closed = cv2.morphologyEx(thresh2, cv2.MORPH_CLOSE, kernel)
         mod1 = cv2.morphologyEx(closed, cv2.MORPH_OPEN, kernel)
-        
-        # Kernel applied to the image with opening and closing algorithms
         opened = cv2.morphologyEx(thresh1, cv2.MORPH_OPEN, kernel)
         mod2 = cv2.morphologyEx(thresh1, cv2.MORPH_CLOSE, kernel)
 
@@ -172,12 +173,15 @@ class Bot:
                 if(self.center[0] > int(self.w * 0.75)):
                     #motor1 = fullspeed
                     #motor2 = off
+                    print("turn left")
                     pass
                 elif(self.center[0] < int(self.w * 0.25)):
                     #motor1 = off
                     #motor2 = fullspeed
+                    print("turn right")
                     pass
                 else:
+                    print("straight ahead")
                     #motor1 = fullspeed
                     #motor2 = fullspeed
                     pass
@@ -187,7 +191,7 @@ class Bot:
                     #if robot was just at a station ignore the barcode
                     
                     #this might be expensive look for workaround
-
+                    cv2.imshow("frame2", self.frame)
                     cv2.imwrite("temp.png",self.frame)
                     code = utils.getBarcodeResults("temp.png")
                     os.remove("temp.png")
@@ -201,6 +205,7 @@ class Bot:
             elif(self.state == BotStates.BARCODE_DETECTED):
                 
                 cv2.imwrite("temp.png",self.frame)
+                
                 code = utils.getBarcodeResults("temp.png")
                 os.remove("temp.png")
 

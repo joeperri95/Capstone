@@ -1,0 +1,16 @@
+2018-12-13 15:40:51,467 INFO : connection from ('127.0.0.1', 55664)
+2018-12-13 15:40:55,146 INFO address: ('127.0.0.1', 55664), message: ls
+2018-12-13 15:40:56,805 INFO address: ('127.0.0.1', 55664), message: help
+2018-12-13 15:42:32,074 INFO address: ('127.0.0.1', 55664), message: Quit
+2019-01-17 11:16:23,901 INFO : connection from ('127.0.0.1', 36924)
+2019-01-17 11:16:28,400 INFO address: ('127.0.0.1', 36924), message: help
+2019-01-17 11:16:32,643 INFO address: ('127.0.0.1', 36924), message: Order
+2019-01-17 11:16:36,597 INFO address: ('127.0.0.1', 36924), message: Go 2
+2019-01-17 11:16:38,707 INFO address: ('127.0.0.1', 36924), message: GO
+2019-01-17 11:16:40,482 INFO address: ('127.0.0.1', 36924), message: Go 
+2019-01-17 11:16:44,551 INFO address: ('127.0.0.1', 36924), message: Base
+2019-01-17 11:16:46,917 INFO address: ('127.0.0.1', 36924), message: Quit
+2019-01-17 11:16:51,470 INFO : connection from ('127.0.0.1', 36930)
+2019-01-17 11:16:55,840 INFO address: ('127.0.0.1', 36930), message: Go
+2019-01-17 11:16:58,318 INFO address: ('127.0.0.1', 36930), message: Go 2
+2019-01-17 11:17:00,281 INFO address: ('127.0.0.1', 36930), message: quit

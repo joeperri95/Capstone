@@ -1,0 +1,8 @@
+2019-01-21 13:26:27,197 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-21 13:27:07,432 INFO 127.0.0.1 - - [21/Jan/2019 13:27:07] "GET / HTTP/1.1" 200 -
+2019-01-21 13:27:07,935 INFO 127.0.0.1 - - [21/Jan/2019 13:27:07] "GET /static/styles.css HTTP/1.1" 304 -
+2019-01-21 13:27:07,967 INFO 127.0.0.1 - - [21/Jan/2019 13:27:07] "GET /static/order.js HTTP/1.1" 304 -
+2019-01-21 13:27:08,341 INFO 127.0.0.1 - - [21/Jan/2019 13:27:08] "GET /static/negative-space-black-sand-beach-with-ocean-cliffs-944x708.jpg HTTP/1.1" 200 -
+2019-01-21 13:27:08,377 INFO 127.0.0.1 - - [21/Jan/2019 13:27:08] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-21 13:27:14,071 ERROR Invalid station order: 2,a,b,Station
+2019-01-21 13:27:14,248 INFO 127.0.0.1 - - [21/Jan/2019 13:27:14] "POST / HTTP/1.1" 200 -

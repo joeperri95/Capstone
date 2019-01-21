@@ -7,6 +7,7 @@ import sys
 import time
 import datetime
 import logging
+import json
 
 HOST = 'localhost'
 PORT = 58000
@@ -20,7 +21,10 @@ class commandServer:
         self.HOST, self.PORT, self.BUFF_SIZE = self.readFile(filename)
 
     def readFile(self, filename):
-
+        
+        pass
+        return 1, 2, 3
+        
         
 
 

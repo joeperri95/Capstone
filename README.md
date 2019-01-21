@@ -18,3 +18,4 @@ Dependencies
 * OpenCV
 * numpy
 * gpiozero
+* flask

@@ -1,35 +1,37 @@
 #!/usr/bin/env python3.6
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 import os
 import logging
 
 def createApp():
     app = Flask(__name__,static_url_path='/static')
+    app.secret_key = "super secret key"
 
     @app.route('/', methods=["GET", "POST"])
     def mainRoute():
 
         if request.method == "POST":
             res = request.form
-            
+
             if res['firstname'] is None or res['lastname'] is None:
                 #make an error page
+                flash("Bad")
                 logging.error(f"Empty name field: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
-                return 'error'
 
-            if res['drink'] == 'Drink':
+            elif res['drink'] == 'Drink':
                 #make an error page
+                flash("Bad")
                 logging.error(f"Invalid drink order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
-                return 'error' 
 
 
-            if res['station'] == 'Station':
+            elif res['station'] == 'Station':
+                flash("Bad")
                 logging.error(f"Invalid station order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
-                return 'error'
 
-
-            logging.info(f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
+            else:
+                logging.info(f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
+                flash("Good")
 
         return render_template('index.html')
 
@@ -37,8 +39,8 @@ def createApp():
 
 
 if __name__ == '__main__':
-    
+
     logging.basicConfig(format = "%(asctime)s %(levelname)s %(message)s", filename="server.log", level=logging.DEBUG)
-    
+
     app = createApp()
-    app.run()
+    app.run(debug=True)

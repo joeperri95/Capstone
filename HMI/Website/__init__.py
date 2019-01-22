@@ -14,7 +14,9 @@ def createApp():
         if request.method == "POST":
             res = request.form
 
-            if res['firstname'] is None or res['lastname'] is None:
+            print(res['firstname'])
+
+            if res['firstname'] == '' or res['lastname'] == '':
                 #make an error page
                 flash("Bad")
                 logging.error(f"Empty name field: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")

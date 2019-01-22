@@ -35,49 +35,39 @@
 
 
       {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      {% for message in messages %}
-      {% if message == "Good" %}
-      <div class="alert alert-success alert-dismissible" role="alert" id="successAlert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			Order Placed! Your drink is on the way!
-		  </div>
+        {% if messages %}
+          {% for message in messages %}
+            {% if message == "Good" %}
+              <div class="alert alert-success alert-dismissible" role="alert" id="successAlert">
+        		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        			Order Placed! Your drink is on the way!
+        		  </div>
 
-      {% block Successscript %}
-      <script>
-      $("#successAlert").fadeTo(1000, 200).slideUp(200, function(){
-               $("#successAlert").slideUp(200);
-                });
-      </script>
-      {% endblock %}
+              {% block Successscript %}
+              <script>
+              $("#successAlert").fadeTo(1000, 200).slideUp(200, function(){
+                       $("#successAlert").slideUp(200);
+                        });
+              </script>
+              {% endblock %}
+            {% else %}
+              <div class="alert alert-danger alert-dismissible" role="alert" id="failedAlert">
+        		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        			You mis-entered information. Please Try again
+        		  </div>
 
-
-      {% else %}
-      <div class="alert alert-danger alert-dismissible" role="alert" id="failedAlert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			You mis-entered information. Please Try again
-		  </div>
-
-      {% block Failedscript %}
-      <script>
-      $("#failedAlert").fadeTo(1500, 200).slideUp(200, function(){
-               $("#failedAlert").slideUp(200);
-                });
-      </script>
-      {% endblock %}
-
-
-      {% endif %}
-      {% endfor %}
-      {% endif %}
+              {% block Failedscript %}
+              <script>
+              $("#failedAlert").fadeTo(1500, 200).slideUp(200, function(){
+                       $("#failedAlert").slideUp(200);
+                        });
+              </script>
+              {% endblock %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       {% endwith %}
 
-      <!-- <div class="alert alert-success collapse" id = "successAlert">
-    Order Placed! Your drink is on the way!
-  </div>
-  <div class="alert alert-danger collapse" id="failedAlert">
-  You mis-entered information. Please Try again
-  </div> -->
     </div>
   </div>
 </body>

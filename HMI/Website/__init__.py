@@ -17,12 +17,10 @@ def createApp():
             print(res['firstname'])
 
             if res['firstname'] == '' or res['lastname'] == '':
-                #make an error page
                 flash("Bad")
                 logging.error(f"Empty name field: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
 
             elif res['drink'] == 'Drink':
-                #make an error page
                 flash("Bad")
                 logging.error(f"Invalid drink order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
 
@@ -35,7 +33,17 @@ def createApp():
                 logging.info(f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
                 flash("Good")
 
-        return render_template('index.html')
+        return render_template('index.html',caption="The Next Generation Bar Experience.")
+
+    @app.route('/about')
+    def about():
+        return render_template('about.html',title="About Us",caption="Learn More About Us!")
+
+    @app.route('/track')
+    def track():
+        return render_template('track.html',title="Track Your Order",caption="Track Your Order Live!")
+
+
 
     return app
 

@@ -1,75 +1,56 @@
-<!DOCTYPE html>
-<html>
-<title>ROBOSERVE</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<body>
-  <div class="page-background">
-    <div class="cta container rounded text-center text-white">
-      <blockquote class="blockquote">
-        <h1 class="display-1 mb-0">ROBOSERVE</h1>
-        <footer class="blockquote-footer text-white text-right">The Next Generation Bar Experience</footer>
-      </blockquote>
-      <form action="" class="form-inline justify-content-center" id="orderForm" method="post">
-        <label class="sr-only" for="FirstName">First Name</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First" name="firstname" value={{request.form.firstname}}>
-        <label class="sr-only" for="FirstName">Last Name</label>
-        <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last" name="lastname" value={{request.form.lastname}}>
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Drink" name="drink" value={{request.form.drink}}>
-          <option hidden>Drink</option>
-          <option value="1">Orange Juice</option>
-          <option value="2">Ginger Ale</option>
-          <option value="3">Mimosa</option>
-        </select>
-        <select class="custom-select mb-sm-2 mr-sm-2" id="Station" name="station" value={{request.form.station}}>
-          <option hidden>Station</option>
-          <option value="1">Station 1</option>
-          <option value="2">Station 2</option>
-        </select>
-        <button type="submit button" class="btn btn-primary mb-sm-2 mr-sm-2" id="myBtn" value="Login">Submit Order</button>
-      </form>
+{% extends "layout.html" %}
+{% block content %}
+<form action="" class="form-inline justify-content-center" id="orderForm" method="post">
+  <label class="sr-only" for="FirstName">First Name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="FirstName" placeholder="First" name="firstname" value={{request.form.firstname}}>
+  <label class="sr-only" for="FirstName">Last Name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="LastName" placeholder="Last" name="lastname" value={{request.form.lastname}}>
+  <select class="custom-select mb-sm-2 mr-sm-2" id="Drink" name="drink" value={{request.form.drink}}>
+    <option hidden>Drink</option>
+    <option value="1">Orange Juice</option>
+    <option value="2">Ginger Ale</option>
+    <option value="3">Mimosa</option>
+  </select>
+  <select class="custom-select mb-sm-2 mr-sm-2" id="Station" name="station" value={{request.form.station}}>
+    <option hidden>Station</option>
+    <option value="1">Station 1</option>
+    <option value="2">Station 2</option>
+  </select>
+  <button type="submit button" class="btn btn-primary mb-sm-2 mr-sm-2" id="myBtn" value="Login">Submit Order</button>
+</form>
 
 
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            {% if message == "Good" %}
-              <div class="alert alert-success alert-dismissible" role="alert" id="successAlert">
-        		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-        			Order Placed! Your drink is on the way!
-        		  </div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+{% if message == "Good" %}
+<div class="alert alert-success alert-dismissible" role="alert" id="successAlert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+  Order Placed! Your drink is on the way!
+</div>
 
-              {% block Successscript %}
-              <script>
-              $("#successAlert").fadeTo(1000, 200).slideUp(200, function(){
+{% block Successscript %}
+<script>
+  $("#successAlert").fadeTo(1000, 200).slideUp(200, function(){
                        $("#successAlert").slideUp(200);
                         });
               </script>
-              {% endblock %}
-            {% else %}
-              <div class="alert alert-danger alert-dismissible" role="alert" id="failedAlert">
-        		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-        			You mis-entered information. Please Try again
-        		  </div>
+{% endblock %}
+{% else %}
+<div class="alert alert-danger alert-dismissible" role="alert" id="failedAlert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+  You have entered invalid information. Please Try again!
+</div>
 
-              {% block Failedscript %}
-              <script>
-              $("#failedAlert").fadeTo(1500, 200).slideUp(200, function(){
-                       $("#failedAlert").slideUp(200);
-                        });
-              </script>
-              {% endblock %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-
-    </div>
-  </div>
-</body>
-
-</html>
+{% block Failedscript %}
+<script>
+  $("#failedAlert").fadeTo(1500, 200).slideUp(200, function() {
+    $("#failedAlert").slideUp(200);
+  });
+</script>
+{% endblock %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock %}

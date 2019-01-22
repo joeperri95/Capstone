@@ -60,3 +60,87 @@
 2019-01-21 21:09:40,406 INFO 127.0.0.1 - - [21/Jan/2019 21:09:40] "GET / HTTP/1.1" 200 -
 2019-01-21 21:09:42,776 ERROR Invalid drink order: Drink,a,,Station
 2019-01-21 21:09:42,777 INFO 127.0.0.1 - - [21/Jan/2019 21:09:42] "POST / HTTP/1.1" 200 -
+2019-01-21 22:09:04,717 INFO  * Restarting with stat
+2019-01-21 22:09:05,212 WARNING  * Debugger is active!
+2019-01-21 22:09:05,222 INFO  * Debugger PIN: 221-675-300
+2019-01-21 22:09:05,241 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-21 22:09:09,068 INFO 127.0.0.1 - - [21/Jan/2019 22:09:09] "GET / HTTP/1.1" 200 -
+2019-01-21 22:09:09,309 INFO 127.0.0.1 - - [21/Jan/2019 22:09:09] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-21 22:09:09,608 INFO 127.0.0.1 - - [21/Jan/2019 22:09:09] "GET /static/negative-space-black-sand-beach-with-ocean-cliffs-944x708.jpg HTTP/1.1" 200 -
+2019-01-21 22:09:10,485 INFO 127.0.0.1 - - [21/Jan/2019 22:09:10] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-21 22:09:13,905 INFO 2 order from sdfa dfasdf at 2
+2019-01-21 22:09:13,905 INFO 127.0.0.1 - - [21/Jan/2019 22:09:13] "POST / HTTP/1.1" 200 -
+2019-01-21 23:25:28,119 INFO  * Restarting with stat
+2019-01-21 23:25:28,586 WARNING  * Debugger is active!
+2019-01-21 23:25:28,593 INFO  * Debugger PIN: 221-675-300
+2019-01-21 23:25:28,602 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-21 23:25:33,090 INFO 127.0.0.1 - - [21/Jan/2019 23:25:33] "GET / HTTP/1.1" 200 -
+2019-01-21 23:25:37,459 ERROR Empty name field: 3,,,Station
+2019-01-21 23:25:37,459 INFO 127.0.0.1 - - [21/Jan/2019 23:25:37] "POST / HTTP/1.1" 200 -
+2019-01-21 23:25:41,494 ERROR Invalid drink order: Drink,asd,as,Station
+2019-01-21 23:25:41,495 INFO 127.0.0.1 - - [21/Jan/2019 23:25:41] "POST / HTTP/1.1" 200 -
+2019-01-21 23:25:44,867 INFO 1 order from asd as at 2
+2019-01-21 23:25:44,868 INFO 127.0.0.1 - - [21/Jan/2019 23:25:44] "POST / HTTP/1.1" 200 -
+2019-01-21 23:39:43,295 INFO  * Restarting with stat
+2019-01-21 23:39:43,769 WARNING  * Debugger is active!
+2019-01-21 23:39:43,777 INFO  * Debugger PIN: 221-675-300
+2019-01-21 23:39:43,787 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-21 23:39:48,656 INFO 127.0.0.1 - - [21/Jan/2019 23:39:48] "GET / HTTP/1.1" 200 -
+2019-01-21 23:39:53,246 INFO 127.0.0.1 - - [21/Jan/2019 23:39:53] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:39:58,891 INFO 127.0.0.1 - - [21/Jan/2019 23:39:58] "GET /track HTTP/1.1" 200 -
+2019-01-21 23:46:25,552 INFO 127.0.0.1 - - [21/Jan/2019 23:46:25] "GET / HTTP/1.1" 200 -
+2019-01-21 23:46:29,029 INFO 127.0.0.1 - - [21/Jan/2019 23:46:29] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:49:50,636 INFO 127.0.0.1 - - [21/Jan/2019 23:49:50] "GET / HTTP/1.1" 500 -
+2019-01-21 23:49:50,864 INFO 127.0.0.1 - - [21/Jan/2019 23:49:50] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-01-21 23:49:50,982 INFO 127.0.0.1 - - [21/Jan/2019 23:49:50] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-01-21 23:49:50,985 INFO 127.0.0.1 - - [21/Jan/2019 23:49:50] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-01-21 23:49:51,138 INFO 127.0.0.1 - - [21/Jan/2019 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-01-21 23:49:51,538 INFO 127.0.0.1 - - [21/Jan/2019 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-21 23:49:51,813 INFO 127.0.0.1 - - [21/Jan/2019 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-21 23:50:08,584 INFO 127.0.0.1 - - [21/Jan/2019 23:50:08] "GET / HTTP/1.1" 200 -
+2019-01-21 23:50:25,150 INFO 127.0.0.1 - - [21/Jan/2019 23:50:25] "GET / HTTP/1.1" 200 -
+2019-01-21 23:50:27,772 ERROR Empty name field: Drink,,,Station
+2019-01-21 23:50:27,774 INFO 127.0.0.1 - - [21/Jan/2019 23:50:27] "POST / HTTP/1.1" 200 -
+2019-01-21 23:51:06,473 INFO 127.0.0.1 - - [21/Jan/2019 23:51:06] "GET / HTTP/1.1" 200 -
+2019-01-21 23:51:10,278 INFO 127.0.0.1 - - [21/Jan/2019 23:51:10] "GET /track HTTP/1.1" 200 -
+2019-01-21 23:51:16,251 INFO 127.0.0.1 - - [21/Jan/2019 23:51:16] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:55:07,834 INFO 127.0.0.1 - - [21/Jan/2019 23:55:07] "GET / HTTP/1.1" 200 -
+2019-01-21 23:55:54,436 INFO 127.0.0.1 - - [21/Jan/2019 23:55:54] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:58:28,623 INFO 127.0.0.1 - - [21/Jan/2019 23:58:28] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:59:46,271 INFO 127.0.0.1 - - [21/Jan/2019 23:59:46] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:59:47,937 INFO 127.0.0.1 - - [21/Jan/2019 23:59:47] "GET /track HTTP/1.1" 200 -
+2019-01-21 23:59:49,444 INFO 127.0.0.1 - - [21/Jan/2019 23:59:49] "GET /about HTTP/1.1" 200 -
+2019-01-21 23:59:50,367 INFO 127.0.0.1 - - [21/Jan/2019 23:59:50] "GET / HTTP/1.1" 200 -
+2019-01-21 23:59:53,300 INFO 127.0.0.1 - - [21/Jan/2019 23:59:53] "GET / HTTP/1.1" 200 -
+2019-01-21 23:59:53,682 INFO 127.0.0.1 - - [21/Jan/2019 23:59:53] "GET /about HTTP/1.1" 200 -
+2019-01-22 00:01:51,019 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-22 00:01:51,049 INFO  * Restarting with stat
+2019-01-22 00:01:51,609 WARNING  * Debugger is active!
+2019-01-22 00:01:51,616 INFO  * Debugger PIN: 221-675-300
+2019-01-22 00:01:51,625 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-22 00:02:18,754 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-22 00:02:18,778 INFO  * Restarting with stat
+2019-01-22 00:02:19,332 WARNING  * Debugger is active!
+2019-01-22 00:02:19,340 INFO  * Debugger PIN: 221-675-300
+2019-01-22 00:02:19,349 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-22 00:02:21,168 INFO 127.0.0.1 - - [22/Jan/2019 00:02:21] "GET /about HTTP/1.1" 200 -
+2019-01-22 00:03:01,954 INFO 127.0.0.1 - - [22/Jan/2019 00:03:01] "GET /track HTTP/1.1" 200 -
+2019-01-22 00:03:28,274 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-22 00:03:28,297 INFO  * Restarting with stat
+2019-01-22 00:03:28,856 WARNING  * Debugger is active!
+2019-01-22 00:03:28,864 INFO  * Debugger PIN: 221-675-300
+2019-01-22 00:03:28,873 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-22 00:03:35,134 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-22 00:03:35,162 INFO  * Restarting with stat
+2019-01-22 00:03:35,717 WARNING  * Debugger is active!
+2019-01-22 00:03:35,724 INFO  * Debugger PIN: 221-675-300
+2019-01-22 00:03:35,734 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-22 00:03:35,961 INFO 127.0.0.1 - - [22/Jan/2019 00:03:35] "GET /track HTTP/1.1" 200 -
+2019-01-22 00:03:50,804 INFO 127.0.0.1 - - [22/Jan/2019 00:03:50] "GET /about HTTP/1.1" 200 -
+2019-01-22 00:03:51,544 INFO 127.0.0.1 - - [22/Jan/2019 00:03:51] "GET /track HTTP/1.1" 200 -
+2019-01-22 00:03:52,895 INFO 127.0.0.1 - - [22/Jan/2019 00:03:52] "GET / HTTP/1.1" 200 -
+2019-01-22 00:07:13,682 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-22 00:07:13,703 INFO  * Restarting with stat
+2019-01-22 00:07:14,258 WARNING  * Debugger is active!
+2019-01-22 00:07:14,265 INFO  * Debugger PIN: 221-675-300
+2019-01-22 00:07:14,275 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

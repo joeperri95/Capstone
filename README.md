@@ -35,16 +35,13 @@ pip install OpenCV numpy gpiozero flask
 
 Running the Web App
 ===================
-To run the website, grab the filepath of the folder that contains all of the
-website files. Then run cmd and enter the following commands:
-```
-cd filepath
-```
-That will take you to the directory of the website. Then run the following:
+To run the website, got to the folder that contains all of the
+website files. Then run type cmd in the navigation bar enter the following command:
+
 ```
 python __init__.py
 ```
-You should get a resposne that says server started. Then go to a browser and
+You should get a response that says server started. Then go to a browser and
 enter the following:
 ```
 localhost:5000

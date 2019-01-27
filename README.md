@@ -30,7 +30,7 @@ go into the scripts folder then in the directory bar type in cmd and press run.
 
 Then run the following command:
 ```
-pip install OpenCV numpy gpiozero flask
+pip install numpy gpiozero flask
 ```
 
 Running the Web App

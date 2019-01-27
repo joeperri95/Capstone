@@ -1,145 +1,78 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<head>
-  {% if title %}
-  <title>{{title}}</title>
-  {% else %}
-  <title>ROBOSERVE</title>
-  {% endif %}
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css') }}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Add Logo Here</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('mainRoute') }}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('track') }}">Track Your Order In Realtime</a>
-        </li>
+<div class="container-fluid p-3">
+  <div class="card-deck">
+    <div class="card text-center" style="width: 15rem;">
+      <img class="card-img-top" src="static/Maharshi.jpeg" alt="Maharshi Patel">
+      <div class="card-body">
+        <h5 class="card-title">Maharshi Patel</h5>
+        <p class="card-text">Maharshi is a Electrical B.Eng candidate at McMaster University. In this project he developed the dispension system and the HMI. He also worked on group administration. He hopes that his contributions
+          in this project will lead to new career oportunities.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Drink Dispension System</li>
+        <li class="list-group-item">Human Machine Interface</li>
+        <li class="list-group-item">Group Administration</li>
       </ul>
-    </div>
-  </nav>
-
-
-  <div class="page-background">
-    <div class="cta container rounded text-center text-white">
-      <blockquote class="blockquote">
-        <h1 class="display-1 mb-0">ROBOSERVE</h1>
-        <footer class="blockquote-footer text-white text-center">{{caption}}</footer>
-      </blockquote>
-    </div>
-    </div>
-  <div class="container-fluid">
-  <div class="row-eq-height">
-    <div class="col">
-      <div class="container py-5">
-        <div class="card flex-row">
-          <img class="fluid-image rounded-left" src="static/Maharshi.jpeg" alt="Image">
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="card-body w-100">
-              <h1 class="card-title">Maharshi Patel</h1>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Drink Dispension</li>
-              <li class="list-group-item">Human Machine Interface</li>
-              <li class="list-group-item">Administration</li>
-            </ul>
-            <div class="card-body w-100">
-              <p class="card-text">
-                Blurb.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="card-body">
+        <a href="https://www.linkedin.com/in/maharshipatel1997/"><i class="fa fa-linkedin fa-2x"></i></a>
       </div>
     </div>
 
-    <div class="col">
-      <div class="container py-5">
-        <div class="card flex-row">
-          <img class="fluid-image rounded-left" src="static/Maharshi.jpeg" alt="Image">
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="card-body w-100">
-              <h1 class="card-title">Joe Perri</h1>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Navigation</li>
-              <li class="list-group-item">Human Machine Interface</li>
-              <li class="list-group-item">Code Management</li>
-            </ul>
-            <div class="card-body w-100">
-              <p class="card-text">
-                Blurb.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="card text-center" style="width: 15rem;">
+      <img class="card-img-top" src="static/Malcolm.jpeg" alt="Malcolm MacEachern">
+      <div class="card-body">
+        <h5 class="card-title">Malcolm MacEachern</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Structural Design/Simulation</li>
+        <li class="list-group-item">Robot Assembly</li>
+        <li class="list-group-item"></li>
+      </ul>
+      <div class="card-body">
+        <a href="https://www.linkedin.com/in/malcolm-maceachern-6b2624116/"><i class="fa fa-linkedin fa-2x"></i></a>
       </div>
     </div>
 
-    <div class="col">
-      <div class="container py-5">
-        <div class="card flex-row">
-          <img class="fluid-image rounded-left" src="/static/Malcolm.jpeg" alt="Image">
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="card-body w-100">
-              <h1 class="card-title">Malcolm MacEachern</h1>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Structural Design</li>
-              <li class="list-group-item">Dispension System</li>
-            </ul>
-            <div class="card-body w-100">
-              <p class="card-text">
-                Blurb.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="card text-center" style="width: 15rem;">
+      <img class="card-img-top" src="static/Random.jpeg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Joe Perri</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Navigation</li>
+        <li class="list-group-item">Human Machine Interface</li>
+        <li class="list-group-item">Software Management</li>
+      </ul>
+      <div class="card-body">
+        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
       </div>
     </div>
 
-    <div class="col">
-      <div class="container py-5">
-        <div class="card flex-row">
-          <img class="fluid-image rounded-left" src="static/Paul.jpeg" alt="Image">
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="card-body w-100">
-              <h1 class="card-title">Paul Nguyen</h1>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Motor Drive Algorithm</li>
-              <li class="list-group-item">Power Systems</li>
-            </ul>
-            <div class="card-body w-100">
-              <p class="card-text">
-                Blurb.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="card text-center" style="width: 15rem;">
+      <img class="card-img-top" src="static/Random.jpeg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Paul Nguyen</h5>
+        <p class="card-text">Paul is a B. Eng candidate at McMaster University. His technical contribution on the team focuses on the locomotion system. As a result of his involvement on the project, he wishes to pursue advance studies in motor
+          design, inverter design and motor controls.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Locomotion</li>
+        <li class="list-group-item">Power Systems</li>
+        <li class="list-group-item">Benchmarking</li>
+      </ul>
+      <div class="card-body">
+        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
       </div>
     </div>
-
 
   </div>
-</div>
-    </body>
 
-    </html>
+
+</div>
+
+{% endblock %}

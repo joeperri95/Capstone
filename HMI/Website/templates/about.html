@@ -4,75 +4,32 @@
 
 <div class="container-fluid p-3">
   <div class="card-deck">
-    <div class="card text-center" style="width: 15rem;">
-      <img class="card-img-top" src="static/Maharshi.jpeg" alt="Maharshi Patel">
-      <div class="card-body">
-        <h5 class="card-title">Maharshi Patel</h5>
-        <p class="card-text">Maharshi is a Electrical B.Eng candidate at McMaster University. In this project he developed the dispension system and the HMI. He also worked on group administration. He hopes that his contributions
-          in this project will lead to new career oportunities.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Drink Dispension System</li>
-        <li class="list-group-item">Human Machine Interface</li>
-        <li class="list-group-item">Group Administration</li>
-      </ul>
-      <div class="card-body">
-        <a href="https://www.linkedin.com/in/maharshipatel1997/"><i class="fa fa-linkedin fa-2x"></i></a>
-      </div>
-    </div>
 
+    {% for teammate in teammates %}
     <div class="card text-center" style="width: 15rem;">
-      <img class="card-img-top" src="static/Malcolm.jpeg" alt="Malcolm MacEachern">
+      <img class="card-img-top" src={{teammate.Img}} alt={{teammate.Name}}>
       <div class="card-body">
-        <h5 class="card-title">Malcolm MacEachern</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">{{teammate.Name}}</h5>
+        <p class="card-text">{{teammate.Bio}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Structural Design/Simulation</li>
-        <li class="list-group-item">Robot Assembly</li>
-        <li class="list-group-item"></li>
+        <li class="list-group-item">{{teammate.Task1}}</li>
+        <li class="list-group-item">{{teammate.Task2}}</li>
+        <li class="list-group-item">{{teammate.Task3}}</li>
       </ul>
       <div class="card-body">
-        <a href="https://www.linkedin.com/in/malcolm-maceachern-6b2624116/"><i class="fa fa-linkedin fa-2x"></i></a>
+        {% if teammate.LinkedIn %}
+        <a href={{teammate.LinkedIn}}><i class="fa fa-linkedin fa-2x"></i></a>
+        {% elif teammate.Git%}
+        <a href={{teammate.Git}}><i class="fa fa-github fa-2x"></i></a>
+        {% else %}
+        <a><i></i></a>
+        {% endif %}
       </div>
     </div>
-
-    <div class="card text-center" style="width: 15rem;">
-      <img class="card-img-top" src="static/Random.jpeg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Joe Perri</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Navigation</li>
-        <li class="list-group-item">Human Machine Interface</li>
-        <li class="list-group-item">Software Management</li>
-      </ul>
-      <div class="card-body">
-        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
-      </div>
-    </div>
-
-    <div class="card text-center" style="width: 15rem;">
-      <img class="card-img-top" src="static/Random.jpeg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Paul Nguyen</h5>
-        <p class="card-text">Paul is a B. Eng candidate at McMaster University. His technical contribution on the team focuses on the locomotion system. As a result of his involvement on the project, he wishes to pursue advance studies in motor
-          design, inverter design and motor controls.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Locomotion</li>
-        <li class="list-group-item">Power Systems</li>
-        <li class="list-group-item">Benchmarking</li>
-      </ul>
-      <div class="card-body">
-        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
-      </div>
-    </div>
+    {% endfor %}
 
   </div>
-
-
 </div>
 
-{% endblock %}
+{% endblock %}383C42

@@ -880,3 +880,237 @@
 2019-01-26 13:08:52,076 INFO 127.0.0.1 - - [26/Jan/2019 13:08:52] "GET / HTTP/1.1" 200 -
 2019-01-26 13:08:53,765 INFO 127.0.0.1 - - [26/Jan/2019 13:08:53] "GET / HTTP/1.1" 200 -
 2019-01-26 13:08:54,591 INFO 127.0.0.1 - - [26/Jan/2019 13:08:54] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:23:14,818 INFO  * Restarting with stat
+2019-01-27 14:23:15,315 WARNING  * Debugger is active!
+2019-01-27 14:23:15,325 INFO  * Debugger PIN: 221-675-300
+2019-01-27 14:23:15,336 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-27 14:23:17,694 INFO 127.0.0.1 - - [27/Jan/2019 14:23:17] "GET / HTTP/1.1" 200 -
+2019-01-27 14:23:17,930 INFO 127.0.0.1 - - [27/Jan/2019 14:23:17] "GET /static/styles.css HTTP/1.1" 304 -
+2019-01-27 14:23:18,785 INFO 127.0.0.1 - - [27/Jan/2019 14:23:18] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-27 14:23:19,624 INFO 127.0.0.1 - - [27/Jan/2019 14:23:19] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:23:19,870 INFO 127.0.0.1 - - [27/Jan/2019 14:23:19] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-27 14:23:38,220 INFO 127.0.0.1 - - [27/Jan/2019 14:23:38] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:23:38,474 INFO 127.0.0.1 - - [27/Jan/2019 14:23:38] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-27 14:23:38,560 INFO 127.0.0.1 - - [27/Jan/2019 14:23:38] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-27 14:27:37,456 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-27 14:27:37,479 INFO  * Restarting with stat
+2019-01-27 14:28:26,590 INFO  * Restarting with stat
+2019-01-27 14:28:27,060 WARNING  * Debugger is active!
+2019-01-27 14:28:27,068 INFO  * Debugger PIN: 221-675-300
+2019-01-27 14:28:27,076 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-27 14:28:28,786 INFO 127.0.0.1 - - [27/Jan/2019 14:28:28] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:31:48,659 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-27 14:31:48,684 INFO  * Restarting with stat
+2019-01-27 14:31:49,237 WARNING  * Debugger is active!
+2019-01-27 14:31:49,245 INFO  * Debugger PIN: 221-675-300
+2019-01-27 14:31:49,253 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-27 14:31:51,616 INFO 127.0.0.1 - - [27/Jan/2019 14:31:51] "GET / HTTP/1.1" 200 -
+2019-01-27 14:31:53,183 INFO 127.0.0.1 - - [27/Jan/2019 14:31:53] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:46:15,165 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-27 14:46:15,190 INFO  * Restarting with stat
+2019-01-27 14:46:15,761 WARNING  * Debugger is active!
+2019-01-27 14:46:15,769 INFO  * Debugger PIN: 221-675-300
+2019-01-27 14:46:15,778 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-27 14:46:17,399 INFO 127.0.0.1 - - [27/Jan/2019 14:46:17] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:47:12,516 INFO 127.0.0.1 - - [27/Jan/2019 14:47:12] "GET /about HTTP/1.1" 200 -
+2019-01-27 14:47:13,823 INFO 127.0.0.1 - - [27/Jan/2019 14:47:13] "GET /project HTTP/1.1" 200 -
+2019-01-27 14:47:16,373 INFO 127.0.0.1 - - [27/Jan/2019 14:47:16] "GET /track HTTP/1.1" 200 -
+2019-01-27 14:47:19,686 INFO 127.0.0.1 - - [27/Jan/2019 14:47:19] "GET / HTTP/1.1" 200 -
+2019-01-27 15:26:51,303 INFO  * Restarting with stat
+2019-01-27 15:26:51,858 WARNING  * Debugger is active!
+2019-01-27 15:26:51,867 INFO  * Debugger PIN: 221-675-300
+2019-01-27 15:26:51,880 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-27 15:26:54,763 INFO 127.0.0.1 - - [27/Jan/2019 15:26:54] "GET / HTTP/1.1" 200 -
+2019-01-27 15:26:58,184 INFO 127.0.0.1 - - [27/Jan/2019 15:26:58] "GET /project HTTP/1.1" 200 -
+2019-01-27 15:26:59,773 INFO 127.0.0.1 - - [27/Jan/2019 15:26:59] "GET /about HTTP/1.1" 200 -
+2019-01-27 15:27:00,729 INFO 127.0.0.1 - - [27/Jan/2019 15:27:00] "GET / HTTP/1.1" 200 -
+2019-01-27 15:27:06,394 INFO 1 order from sda asd at 2
+2019-01-27 15:27:06,395 INFO 127.0.0.1 - - [27/Jan/2019 15:27:06] "POST / HTTP/1.1" 200 -
+2019-01-28 20:45:41,747 INFO  * Restarting with stat
+2019-01-28 20:45:42,208 WARNING  * Debugger is active!
+2019-01-28 20:45:42,218 INFO  * Debugger PIN: 221-675-300
+2019-01-28 20:45:42,228 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-28 20:45:50,007 INFO 127.0.0.1 - - [28/Jan/2019 20:45:50] "GET / HTTP/1.1" 200 -
+2019-01-28 20:45:50,245 INFO 127.0.0.1 - - [28/Jan/2019 20:45:50] "GET /static/styles.css HTTP/1.1" 304 -
+2019-01-28 20:45:51,098 INFO 127.0.0.1 - - [28/Jan/2019 20:45:51] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 20:45:56,612 INFO 127.0.0.1 - - [28/Jan/2019 20:45:56] "GET /project HTTP/1.1" 200 -
+2019-01-28 20:45:57,796 INFO 127.0.0.1 - - [28/Jan/2019 20:45:57] "GET /about HTTP/1.1" 200 -
+2019-01-28 20:45:58,146 INFO 127.0.0.1 - - [28/Jan/2019 20:45:58] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 20:45:58,146 INFO 127.0.0.1 - - [28/Jan/2019 20:45:58] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 20:45:58,271 INFO 127.0.0.1 - - [28/Jan/2019 20:45:58] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 20:45:58,271 INFO 127.0.0.1 - - [28/Jan/2019 20:45:58] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 20:48:24,893 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-28 20:48:24,917 INFO  * Restarting with stat
+2019-01-28 20:48:25,516 WARNING  * Debugger is active!
+2019-01-28 20:48:25,524 INFO  * Debugger PIN: 221-675-300
+2019-01-28 20:48:25,533 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-28 20:50:03,095 INFO 127.0.0.1 - - [28/Jan/2019 20:50:03] "GET /about HTTP/1.1" 200 -
+2019-01-28 20:52:00,446 INFO 127.0.0.1 - - [28/Jan/2019 20:52:00] "GET / HTTP/1.1" 200 -
+2019-01-28 20:52:02,171 INFO 127.0.0.1 - - [28/Jan/2019 20:52:02] "GET /about HTTP/1.1" 200 -
+2019-01-28 20:53:09,431 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-01-28 20:53:09,454 INFO  * Restarting with stat
+2019-01-28 20:53:10,030 WARNING  * Debugger is active!
+2019-01-28 20:53:10,038 INFO  * Debugger PIN: 221-675-300
+2019-01-28 20:53:10,048 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-28 20:53:10,629 INFO 127.0.0.1 - - [28/Jan/2019 20:53:10] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:03:17,853 INFO  * Restarting with stat
+2019-01-28 21:03:18,327 WARNING  * Debugger is active!
+2019-01-28 21:03:18,336 INFO  * Debugger PIN: 221-675-300
+2019-01-28 21:03:18,345 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-28 21:03:20,475 INFO 127.0.0.1 - - [28/Jan/2019 21:03:20] "GET / HTTP/1.1" 200 -
+2019-01-28 21:03:24,369 INFO 127.0.0.1 - - [28/Jan/2019 21:03:24] "GET /about HTTP/1.1" 500 -
+2019-01-28 21:03:24,696 INFO 127.0.0.1 - - [28/Jan/2019 21:03:24] "GET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-01-28 21:03:24,702 INFO 127.0.0.1 - - [28/Jan/2019 21:03:24] "GET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-01-28 21:03:24,710 INFO 127.0.0.1 - - [28/Jan/2019 21:03:24] "GET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-01-28 21:03:24,947 INFO 127.0.0.1 - - [28/Jan/2019 21:03:24] "GET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-01-28 21:03:25,108 INFO 127.0.0.1 - - [28/Jan/2019 21:03:25] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-28 21:03:25,197 INFO 127.0.0.1 - - [28/Jan/2019 21:03:25] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-28 21:03:54,515 INFO 127.0.0.1 - - [28/Jan/2019 21:03:54] "GET /about HTTP/1.1" 500 -
+2019-01-28 21:03:54,748 INFO 127.0.0.1 - - [28/Jan/2019 21:03:54] "GET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-01-28 21:03:54,841 INFO 127.0.0.1 - - [28/Jan/2019 21:03:54] "GET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-01-28 21:03:54,841 INFO 127.0.0.1 - - [28/Jan/2019 21:03:54] "GET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-01-28 21:03:54,993 INFO 127.0.0.1 - - [28/Jan/2019 21:03:54] "GET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-01-28 21:03:55,351 INFO 127.0.0.1 - - [28/Jan/2019 21:03:55] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-28 21:03:55,675 INFO 127.0.0.1 - - [28/Jan/2019 21:03:55] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-28 21:04:15,636 INFO 127.0.0.1 - - [28/Jan/2019 21:04:15] "GET /about HTTP/1.1" 500 -
+2019-01-28 21:04:15,865 INFO 127.0.0.1 - - [28/Jan/2019 21:04:15] "GET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-01-28 21:04:15,968 INFO 127.0.0.1 - - [28/Jan/2019 21:04:15] "GET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-01-28 21:04:15,973 INFO 127.0.0.1 - - [28/Jan/2019 21:04:15] "GET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-01-28 21:04:16,062 INFO 127.0.0.1 - - [28/Jan/2019 21:04:16] "GET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-01-28 21:04:16,417 INFO 127.0.0.1 - - [28/Jan/2019 21:04:16] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-01-28 21:05:34,097 INFO 127.0.0.1 - - [28/Jan/2019 21:05:34] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:07:19,771 INFO 127.0.0.1 - - [28/Jan/2019 21:07:19] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:07:55,678 INFO 127.0.0.1 - - [28/Jan/2019 21:07:55] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:24:42,692 INFO 127.0.0.1 - - [28/Jan/2019 21:24:42] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:24:43,837 INFO 127.0.0.1 - - [28/Jan/2019 21:24:43] "GET /project HTTP/1.1" 200 -
+2019-01-28 21:24:46,068 INFO 127.0.0.1 - - [28/Jan/2019 21:24:46] "GET /track HTTP/1.1" 200 -
+2019-01-28 21:24:47,450 INFO 127.0.0.1 - - [28/Jan/2019 21:24:47] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:24:49,136 INFO 127.0.0.1 - - [28/Jan/2019 21:24:49] "GET / HTTP/1.1" 200 -
+2019-01-28 21:27:43,834 INFO 127.0.0.1 - - [28/Jan/2019 21:27:43] "GET / HTTP/1.1" 200 -
+2019-01-28 21:27:52,510 INFO 2 order from j vj at 1
+2019-01-28 21:27:52,512 INFO 127.0.0.1 - - [28/Jan/2019 21:27:52] "POST / HTTP/1.1" 200 -
+2019-01-28 21:41:23,181 INFO 127.0.0.1 - - [28/Jan/2019 21:41:23] "GET / HTTP/1.1" 200 -
+2019-01-28 21:41:31,917 INFO 127.0.0.1 - - [28/Jan/2019 21:41:31] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:51:16,598 INFO 127.0.0.1 - - [28/Jan/2019 21:51:16] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:51:16,845 INFO 127.0.0.1 - - [28/Jan/2019 21:51:16] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:51:16,951 INFO 127.0.0.1 - - [28/Jan/2019 21:51:16] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:16,964 INFO 127.0.0.1 - - [28/Jan/2019 21:51:16] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:16,975 INFO 127.0.0.1 - - [28/Jan/2019 21:51:16] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:51:17,277 INFO 127.0.0.1 - - [28/Jan/2019 21:51:17] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:17,917 INFO 127.0.0.1 - - [28/Jan/2019 21:51:17] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 21:51:19,099 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:51:19,430 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:51:19,443 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:19,444 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:19,683 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:51:19,748 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:19,759 INFO 127.0.0.1 - - [28/Jan/2019 21:51:19] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 21:51:32,381 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:51:32,628 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:51:32,725 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:32,730 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:51:32,731 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:32,946 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:32,958 INFO 127.0.0.1 - - [28/Jan/2019 21:51:32] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 21:51:34,067 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:51:34,319 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:51:34,400 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:34,407 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:34,410 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:51:34,645 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:51:34,657 INFO 127.0.0.1 - - [28/Jan/2019 21:51:34] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 21:53:11,287 INFO 127.0.0.1 - - [28/Jan/2019 21:53:11] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:53:11,535 INFO 127.0.0.1 - - [28/Jan/2019 21:53:11] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-28 21:53:30,669 INFO 127.0.0.1 - - [28/Jan/2019 21:53:30] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:53:30,916 INFO 127.0.0.1 - - [28/Jan/2019 21:53:30] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:53:31,007 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-28 21:53:31,011 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:31,061 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:31,362 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:53:31,392 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:31,981 INFO 127.0.0.1 - - [28/Jan/2019 21:53:31] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 21:53:46,232 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:53:46,478 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 21:53:46,584 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:46,592 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:46,592 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 21:53:46,798 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /about HTTP/1.1" 200 -
+2019-01-28 21:53:46,799 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 21:53:46,819 INFO 127.0.0.1 - - [28/Jan/2019 21:53:46] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:01:10,285 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:10,536 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:01:10,620 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:10,633 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:10,667 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:01:10,969 INFO 127.0.0.1 - - [28/Jan/2019 22:01:10] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:11,001 INFO 127.0.0.1 - - [28/Jan/2019 22:01:11] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:11,611 INFO 127.0.0.1 - - [28/Jan/2019 22:01:11] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:01:23,448 INFO 127.0.0.1 - - [28/Jan/2019 22:01:23] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:23,696 INFO 127.0.0.1 - - [28/Jan/2019 22:01:23] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:01:23,780 INFO 127.0.0.1 - - [28/Jan/2019 22:01:23] "GET /static/Templogo HTTP/1.1" 404 -
+2019-01-28 22:01:23,787 INFO 127.0.0.1 - - [28/Jan/2019 22:01:23] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:23,788 INFO 127.0.0.1 - - [28/Jan/2019 22:01:23] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:24,015 INFO 127.0.0.1 - - [28/Jan/2019 22:01:24] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:01:24,015 INFO 127.0.0.1 - - [28/Jan/2019 22:01:24] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:24,027 INFO 127.0.0.1 - - [28/Jan/2019 22:01:24] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:01:24,987 INFO 127.0.0.1 - - [28/Jan/2019 22:01:24] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:25,237 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:01:25,328 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/Templogo HTTP/1.1" 404 -
+2019-01-28 22:01:25,335 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:25,335 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:25,556 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:01:25,557 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:25,572 INFO 127.0.0.1 - - [28/Jan/2019 22:01:25] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:01:28,378 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:28,630 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:01:28,719 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/Templogo HTTP/1.1" 404 -
+2019-01-28 22:01:28,722 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:28,723 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:28,950 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:01:28,950 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:28,962 INFO 127.0.0.1 - - [28/Jan/2019 22:01:28] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:01:47,093 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:01:47,334 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:01:47,431 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-28 22:01:47,436 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:47,455 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:47,759 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:01:47,760 INFO 127.0.0.1 - - [28/Jan/2019 22:01:47] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:01:48,394 INFO 127.0.0.1 - - [28/Jan/2019 22:01:48] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:03:04,052 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:03:04,304 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:03:04,405 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-28 22:03:04,410 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:04,465 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:04,769 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:03:04,796 INFO 127.0.0.1 - - [28/Jan/2019 22:03:04] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:05,433 INFO 127.0.0.1 - - [28/Jan/2019 22:03:05] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-28 22:03:05,686 INFO 127.0.0.1 - - [28/Jan/2019 22:03:05] "GET /about HTTP/1.1" 200 -
+2019-01-28 22:03:05,773 INFO 127.0.0.1 - - [28/Jan/2019 22:03:05] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-28 22:03:06,030 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-28 22:03:06,037 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:06,037 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:06,188 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-28 22:03:06,188 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /static/Random.jpeg HTTP/1.1" 200 -
+2019-01-28 22:03:06,199 INFO 127.0.0.1 - - [28/Jan/2019 22:03:06] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-29 19:33:59,865 INFO  * Restarting with stat
+2019-01-29 19:34:00,324 WARNING  * Debugger is active!
+2019-01-29 19:34:00,340 INFO  * Debugger PIN: 221-675-300
+2019-01-29 19:34:00,356 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-29 19:34:03,853 INFO 127.0.0.1 - - [29/Jan/2019 19:34:03] "GET / HTTP/1.1" 200 -
+2019-01-29 19:34:04,449 INFO 127.0.0.1 - - [29/Jan/2019 19:34:04] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-29 19:34:04,751 INFO 127.0.0.1 - - [29/Jan/2019 19:34:04] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-29 19:34:05,841 INFO 127.0.0.1 - - [29/Jan/2019 19:34:05] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-30 12:43:06,196 INFO  * Restarting with stat
+2019-01-30 12:43:06,666 WARNING  * Debugger is active!
+2019-01-30 12:43:06,676 INFO  * Debugger PIN: 221-675-300
+2019-01-30 12:43:06,690 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-30 12:43:12,344 INFO 127.0.0.1 - - [30/Jan/2019 12:43:12] "GET / HTTP/1.1" 200 -
+2019-01-30 12:43:12,582 INFO 127.0.0.1 - - [30/Jan/2019 12:43:12] "GET /static/styles.css HTTP/1.1" 200 -
+2019-01-30 12:43:12,678 INFO 127.0.0.1 - - [30/Jan/2019 12:43:12] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-01-30 12:43:13,521 INFO 127.0.0.1 - - [30/Jan/2019 12:43:13] "GET /favicon.ico HTTP/1.1" 404 -
+2019-01-30 12:43:47,058 INFO 127.0.0.1 - - [30/Jan/2019 12:43:47] "GET /about HTTP/1.1" 200 -
+2019-01-30 12:43:47,305 INFO 127.0.0.1 - - [30/Jan/2019 12:43:47] "GET /static/Maharshi.jpeg HTTP/1.1" 200 -
+2019-01-30 12:43:47,394 INFO 127.0.0.1 - - [30/Jan/2019 12:43:47] "GET /static/Malcolm.jpeg HTTP/1.1" 200 -
+2019-01-30 12:43:47,419 INFO 127.0.0.1 - - [30/Jan/2019 12:43:47] "GET /static/Joe.png HTTP/1.1" 200 -
+2019-01-30 12:43:47,731 INFO 127.0.0.1 - - [30/Jan/2019 12:43:47] "GET /static/Random.jpeg HTTP/1.1" 200 -

@@ -1134,3 +1134,65 @@
 2019-03-02 15:53:15,935 INFO 127.0.0.1 - - [02/Mar/2019 15:53:15] "GET /project HTTP/1.1" 200 -
 2019-03-02 15:53:32,611 INFO 127.0.0.1 - - [02/Mar/2019 15:53:32] "GET /project HTTP/1.1" 200 -
 2019-03-02 15:53:49,545 INFO 127.0.0.1 - - [02/Mar/2019 15:53:49] "GET /project HTTP/1.1" 200 -
+2019-03-04 17:42:34,707 INFO  * Restarting with stat
+2019-03-04 17:42:35,181 WARNING  * Debugger is active!
+2019-03-04 17:42:35,191 INFO  * Debugger PIN: 221-675-300
+2019-03-04 17:42:35,201 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-04 17:42:40,966 INFO 127.0.0.1 - - [04/Mar/2019 17:42:40] "GET / HTTP/1.1" 200 -
+2019-03-04 17:42:41,202 INFO 127.0.0.1 - - [04/Mar/2019 17:42:41] "GET /static/styles.css HTTP/1.1" 304 -
+2019-03-04 17:42:41,309 INFO 127.0.0.1 - - [04/Mar/2019 17:42:41] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-03-04 17:42:41,874 INFO 127.0.0.1 - - [04/Mar/2019 17:42:41] "GET /favicon.ico HTTP/1.1" 404 -
+2019-03-04 17:42:43,190 INFO 127.0.0.1 - - [04/Mar/2019 17:42:43] "GET /project HTTP/1.1" 200 -
+2019-03-04 17:42:43,507 INFO 127.0.0.1 - - [04/Mar/2019 17:42:43] "GET /static/AboutProject.pdf HTTP/1.1" 200 -
+2019-03-05 14:50:44,772 INFO  * Restarting with stat
+2019-03-05 14:50:45,340 WARNING  * Debugger is active!
+2019-03-05 14:50:45,350 INFO  * Debugger PIN: 221-675-300
+2019-03-05 14:50:45,362 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 14:50:52,134 INFO 127.0.0.1 - - [05/Mar/2019 14:50:52] "GET / HTTP/1.1" 200 -
+2019-03-05 14:50:52,372 INFO 127.0.0.1 - - [05/Mar/2019 14:50:52] "GET /static/styles.css HTTP/1.1" 304 -
+2019-03-05 14:50:52,473 INFO 127.0.0.1 - - [05/Mar/2019 14:50:52] "GET /static/Templogo.jpg HTTP/1.1" 200 -
+2019-03-05 14:50:53,082 INFO 127.0.0.1 - - [05/Mar/2019 14:50:53] "GET /favicon.ico HTTP/1.1" 404 -
+2019-03-05 14:50:54,242 INFO 127.0.0.1 - - [05/Mar/2019 14:50:54] "GET /project HTTP/1.1" 500 -
+2019-03-05 14:50:54,486 INFO 127.0.0.1 - - [05/Mar/2019 14:50:54] "GET /project?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-03-05 14:50:54,572 INFO 127.0.0.1 - - [05/Mar/2019 14:50:54] "GET /project?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-03-05 14:50:54,576 INFO 127.0.0.1 - - [05/Mar/2019 14:50:54] "GET /project?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-03-05 14:50:54,660 INFO 127.0.0.1 - - [05/Mar/2019 14:50:54] "GET /project?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-03-05 14:50:55,020 INFO 127.0.0.1 - - [05/Mar/2019 14:50:55] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:50:55,270 INFO 127.0.0.1 - - [05/Mar/2019 14:50:55] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:52:16,264 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-03-05 14:52:16,297 INFO  * Restarting with stat
+2019-03-05 14:52:16,875 WARNING  * Debugger is active!
+2019-03-05 14:52:16,883 INFO  * Debugger PIN: 221-675-300
+2019-03-05 14:52:16,893 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 14:52:18,634 INFO 127.0.0.1 - - [05/Mar/2019 14:52:18] "GET /project HTTP/1.1" 500 -
+2019-03-05 14:52:18,878 INFO 127.0.0.1 - - [05/Mar/2019 14:52:18] "GET /project?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-03-05 14:52:18,964 INFO 127.0.0.1 - - [05/Mar/2019 14:52:18] "GET /project?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-03-05 14:52:18,967 INFO 127.0.0.1 - - [05/Mar/2019 14:52:18] "GET /project?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-03-05 14:52:19,095 INFO 127.0.0.1 - - [05/Mar/2019 14:52:19] "GET /project?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-03-05 14:52:19,422 INFO 127.0.0.1 - - [05/Mar/2019 14:52:19] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:52:19,687 INFO 127.0.0.1 - - [05/Mar/2019 14:52:19] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:52:27,324 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-03-05 14:52:27,349 INFO  * Restarting with stat
+2019-03-05 14:52:27,955 WARNING  * Debugger is active!
+2019-03-05 14:52:27,962 INFO  * Debugger PIN: 221-675-300
+2019-03-05 14:52:27,971 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 14:52:30,057 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-03-05 14:52:30,076 INFO  * Restarting with stat
+2019-03-05 14:52:30,639 WARNING  * Debugger is active!
+2019-03-05 14:52:30,646 INFO  * Debugger PIN: 221-675-300
+2019-03-05 14:52:30,655 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 14:52:30,876 INFO 127.0.0.1 - - [05/Mar/2019 14:52:30] "GET /project HTTP/1.1" 500 -
+2019-03-05 14:52:31,120 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2019-03-05 14:52:31,211 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2019-03-05 14:52:31,211 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+2019-03-05 14:52:31,292 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2019-03-05 14:52:31,615 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:52:31,867 INFO 127.0.0.1 - - [05/Mar/2019 14:52:31] "GET /project?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2019-03-05 14:57:53,144 INFO  * Detected change in 'C:\\Users\\Maharshi\\Desktop\\Projects\\Capstone\\HMI\\Website\\__init__.py', reloading
+2019-03-05 14:57:53,163 INFO  * Restarting with stat
+2019-03-05 14:59:22,764 INFO  * Restarting with stat
+2019-03-05 14:59:23,228 WARNING  * Debugger is active!
+2019-03-05 14:59:23,235 INFO  * Debugger PIN: 221-675-300
+2019-03-05 14:59:23,244 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 14:59:27,857 INFO 127.0.0.1 - - [05/Mar/2019 14:59:27] "GET / HTTP/1.1" 200 -
+2019-03-05 14:59:30,389 INFO 127.0.0.1 - - [05/Mar/2019 14:59:30] "GET /project HTTP/1.1" 200 -

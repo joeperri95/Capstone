@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, send_file
 import os
 import logging
 
@@ -49,7 +49,7 @@ def createApp():
 
     @app.route('/project')
     def project():
-        return render_template('project.html', title="About the Project", caption="Learn About our Project")
+        return send_file('static/AboutProject.pdf')
 
     return app
 

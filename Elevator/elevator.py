@@ -1,45 +1,67 @@
 import gpiozero
+import time
 
-# drill motor pin setup
-elevator = gpiozero.PWMOutputDevice(pin=04)
-direction = gpiozero.DigitalOutputDevice(pin=24)
+class Elevator():
+    '''
+    Elevator controller class
+    As of now this does not need to be multithreaded the main program will cede control
+    '''
 
+    def __init__(self, initialState):
+        '''
+        takes inital state of elevator as argument (UP/DOWN)
+        '''        
+        self.elevator = gpiozero.PhaseEnableMotor(24, 4)
+        
+        if(str.upper(initialState) == 'UP' or str.upper == 'DOWN'):
+            self.state = initialState
+        else:
+            raise ValueError("Please enter state UP or DOWN")
 
-def elevatorUp:
-    direction.on()  # dturn moter CW
-    elevator.on()
+    def elevatorUp(self):
+        '''
+        If elevator is down raise it
+        '''
 
-    # ramp up the motor in half a second
-    for i in range(9):
-        elevator.value += 0.1
-        sleep(0.05)
+        if self.state == "UP":
+            return
 
-    # hold motor at constant full power
-    sleep(4)
+        self.elevator.on()
 
-    # ramp motor down in half a second
-    for j in range(9):
-        elevator.value -= 0.1
-        sleep(0.05)
+        # ramp up the motor in half a second
+        for i in range(9):
+            self.elevator.value += 0.1
+            time.sleep(0.05)
 
-    elevator.off()
+        time.sleep(4)
 
+        for j in range(9):
+            self.elevator.value -= 0.1
+            time.sleep(0.05)
 
-def elevatorDown:
-    direction.off()  # dturn moter CCW
-    elevator.on()
+        self.elevator.off()
+        self.state = 'UP'
 
-    # ramp up the motor in half a second
-    for i in range(9):
-        elevator.value += 0.1
-        sleep(0.05)
+    def elevatorDown(self):
+        '''
+        If elevator is up lower it
+        '''
 
-    # hold motor at constant full power
-    sleep(4)
+        if(self.state == 'DOWN'):
+            return
 
-    # ramp motor down in half a second
-    for j in range(9):
-        elevator.value -= 0.1
-        sleep(0.05)
+        self.elevator.on()
 
-    elevator.off()
+        # ramp up the motor in half a second
+        for i in range(9):
+            self.elevator.value -= 0.1
+            time.sleep(0.05)
+
+        time.sleep(4)
+
+        for j in range(9):
+            self.elevator.value += 0.1
+            time.sleep(0.05)
+
+        self.elevator.off()
+        self.state == 'DOWN'

@@ -1,21 +1,26 @@
 #!/usr/bin/env python3.6
 
 from flask import Flask, render_template, request, flash, send_file
+import pickle
 import os
+import sys
 import logging
+import socket
 
+HOST = 'localhost'
+SENDPORT = 12345
+RECVPORT = 12346
 
 def createApp():
+ 
     app = Flask(__name__, static_url_path='/static')
     app.secret_key = "super secret key"
-
+    
     @app.route('/', methods=["GET", "POST"])
     def mainRoute():
 
         if request.method == "POST":
             res = request.form
-
-            print(res['firstname'])
 
             if res['firstname'] == '' or res['lastname'] == '':
                 flash("Bad")
@@ -33,9 +38,22 @@ def createApp():
                     f"Invalid station order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
 
             else:
-                logging.info(
-                    f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
-                flash("Good")
+                try:
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.connect((HOST, SENDPORT))
+                    serialObject = pickle.dumps(res)
+                    sock.send(serialObject)
+                    sock.close()
+
+                    logging.info(
+                        f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
+                    flash("Good")
+
+                except ConnectionRefusedError as e:
+                    logging.error(f"no socket found order will not be processed")
+                    flash('No Server')
+
+        
 
         return render_template('index.html', caption="The Next Generation Bar Experience.")
 
@@ -45,7 +63,38 @@ def createApp():
 
     @app.route('/track')
     def track():
-        return render_template('track.html', title="Track Order", caption="Track Your Order Live!")
+        
+        res = "didn't work"
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(2)
+        sock.bind((HOST, RECVPORT))
+        sock.listen(1)
+
+        try:
+            
+            conn, addr = sock.accept()
+            res = ""
+            while(1):
+            
+                data = conn.recv(1024)
+                
+                if(data):
+                    serialObject = pickle.loads(data)
+                    res = res + "<ul><li>{}</li><li>{}</li><li>{}</li><li>{}</li></ul>"\
+                        .format(serialObject['firstname'],\
+                            serialObject['lastname'],\
+                            serialObject['station'],\
+                            serialObject['drink'])
+                    
+                else:
+                    break                
+
+            sock.close()
+        except TimeoutError as e:
+            pass
+        finally:
+            return res
+        #return render_template('track.html', title="Track Order", caption="Track Your Order Live!")
 
     @app.route('/project')
     def project():
@@ -97,5 +146,8 @@ if __name__ == '__main__':
     logging.basicConfig(format="%(asctime)s %(levelname)s %(message)s",
                         filename="server.log", level=logging.DEBUG)
 
+
     app = createApp()
     app.run(debug=True)
+
+  

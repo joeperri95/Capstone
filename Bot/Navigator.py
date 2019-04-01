@@ -23,7 +23,7 @@ import threading
 import queue
 import cv2
 import numpy as np
-#import Motors
+import Motors
 
 RED_LOW = 150
 RED_HIGH = 200
@@ -35,11 +35,11 @@ YELLOW_LOW = 0
 YELLOW_HIGH = 40
 
 class Navigator(threading.Thread):
-    def __init__(self, opt):
+    def __init__(self, opt="up"):
         threading.Thread.__init__(self)
 
         #motor controller class
-        #self.motors = Motors.Motors()
+        self.motors = Motors.Motors()
 
         #image related fields
         self.cap = cv2.VideoCapture(0)
@@ -67,10 +67,10 @@ class Navigator(threading.Thread):
         self.lastFrame = self.frame
         _ , self.frame = self.cap.read()
         self.hsv = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
-        self.draw = np.zeros((self.h, self.w, 3), dtype=np.uint8)
 
         self.processLine()
         self.detect()
+        self.setMotors()
 
     def setOpt(self, newopt):
         self.opt = newopt
@@ -99,9 +99,24 @@ class Navigator(threading.Thread):
             rc, _ = cv2.findContours(self.red, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
             gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
-            cv2.drawContours(self.draw, [max(yc, key=cv2.contourArea)], 0, (0,255,255), -1) 
-            cv2.drawContours(self.draw, [max(gc, key=cv2.contourArea)], 0, (0,255,0), -1) 
-            cv2.drawContours(self.draw, [max(rc, key=cv2.contourArea)], 0, (0,0,255), -1) 
+
+            if(self.opt == "up"):
+                if(rc):
+                    rcmax = max(rc, key=cv2.contourArea)
+                    M = cv2.moments(rcmax)
+
+                    if(M["m00"] == 0):
+                        cx = int(self.w / 2)
+                        cy = int(self.h / 2)
+                    else:    
+                        cx = int(M["m10"]/M["m00"])
+                        cy = int(M["m01"]/M["m00"])
+
+                        self.center = (cx, cy)
+
+                    
+                    
+                
 
         except TypeError as e:
             print(e)
@@ -109,6 +124,17 @@ class Navigator(threading.Thread):
         
     def detect(self):
         pass
+
+    def setMotors(self):
+
+        if(self.center[0] > int(self.w * 0.75)):
+            self.motors.leftTimed(0.1, 0.01)
+
+        elif(self.center[0] < int(self.w * 0.25)):
+            self.motors.rightTimed(0.1, 0.01)
+        
+        else:
+            self.motors.forwardTimed(0.1, 0.01)
 
     def run(self):
         while(True):

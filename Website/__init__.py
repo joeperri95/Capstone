@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3.5
 
 from flask import Flask, render_template, request, flash, send_file
 import pickle
@@ -62,7 +62,7 @@ def createApp():
     def track():
         
         res = "didn't work"
-        
+
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         sock.bind((HOST, RECVPORT))

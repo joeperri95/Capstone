@@ -41,6 +41,7 @@ class Dispensor():
 
                         response = self.conn.read()
                         if(response == '5'):
+                                print('done')
                                 return True
 
                         elif(ord(echo) == '255'):
@@ -52,6 +53,7 @@ class Dispensor():
                         print(e)
                         return False
                 
+                return False
 
 
         def gingerAle(self):
@@ -68,6 +70,7 @@ class Dispensor():
 
                         response = self.conn.read()
                         if(response == '5'):
+                                print('done')
                                 return True
 
                         elif(ord(echo) == '255'):
@@ -79,6 +82,7 @@ class Dispensor():
                         print(e)
                         return False
                 
+                return False
 
         def mimosa(self):
                 '''
@@ -94,6 +98,7 @@ class Dispensor():
 
                         response = self.conn.read()
                         if(response == '5'):
+                                print('done')
                                 return True
 
                         elif(ord(echo) == '255'):
@@ -104,3 +109,5 @@ class Dispensor():
                 except serial.SerialException as e:
                         print(e)
                         return False
+
+                return False

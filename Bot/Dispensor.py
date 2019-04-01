@@ -26,7 +26,7 @@ class Dispensor():
                 #wait 90 seconds for dispension to run
                 self.conn.timeout = 90.0
                 self.conn.open()
-
+                
         def orangejuice(self):
                 '''
                 Dispense orange juice or beverage corresponding to pump 1
@@ -36,14 +36,15 @@ class Dispensor():
                         self.conn.write(b'1')
                         echo = self.conn.read()
 
-                        if(ord(echo) == '255'):
+                        if(ord(echo) == 255):
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == 5):
+                                print('done')
                                 return True
 
-                        elif(ord(echo) == '255'):
+                        elif(ord(echo) == 255):
                                 return False
                         
                         
@@ -52,6 +53,7 @@ class Dispensor():
                         print(e)
                         return False
                 
+                return False
 
 
         def gingerAle(self):
@@ -63,14 +65,14 @@ class Dispensor():
                         self.conn.write(b'2')
                         echo = self.conn.read()
 
-                        if(ord(echo) == '255'):
+                        if(ord(echo) == 255):
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == 5):
                                 return True
 
-                        elif(ord(echo) == '255'):
+                        elif(ord(echo) == 255):
                                 return False
                         
                         
@@ -79,6 +81,7 @@ class Dispensor():
                         print(e)
                         return False
                 
+                return False
 
         def mimosa(self):
                 '''
@@ -89,14 +92,14 @@ class Dispensor():
                         self.conn.write(b'3')
                         echo = self.conn.read()
 
-                        if(ord(echo) == '255'):
+                        if(ord(echo) == 255):
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == 5):
                                 return True
 
-                        elif(ord(echo) == '255'):
+                        elif(ord(echo) == 255):
                                 return False
                         
                         
@@ -104,3 +107,5 @@ class Dispensor():
                 except serial.SerialException as e:
                         print(e)
                         return False
+
+                return False

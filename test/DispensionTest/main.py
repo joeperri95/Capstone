@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/pi/Capstone/Bot')
+sys.path.append('/home/pi/Capstone')
 
 from Bot import Dispensor
 

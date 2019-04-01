@@ -40,7 +40,7 @@ class Dispensor():
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == '5'):
                                 print('done')
                                 return True
 
@@ -69,7 +69,7 @@ class Dispensor():
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == '5'):
                                 print('done')
                                 return True
 
@@ -97,7 +97,7 @@ class Dispensor():
                                 return False
 
                         response = self.conn.read()
-                        if(response == '5'):
+                        if(ord(response) == '5'):
                                 print('done')
                                 return True
 

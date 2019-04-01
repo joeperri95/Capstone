@@ -33,14 +33,24 @@ class Dispensor():
                 '''
         
                 try:        
-                        self.conn.write('oj')
-                        response = self.conn.read()
+                        self.conn.write(b'1')
+                        echo = self.conn.read()
 
-                        if(response == 'done'):
-                                pass
+                        if(ord(echo) == '255'):
+                                return False
+
+                        response = self.conn.read()
+                        if(response == '5'):
+                                return True
+
+                        elif(ord(echo) == '255'):
+                                return False
+                        
+                        
 
                 except serial.SerialException as e:
                         print(e)
+                        return False
                 
 
 
@@ -48,28 +58,49 @@ class Dispensor():
                 '''
                 Dispense ginger ale or beverage corresponding to pump 2
                 '''
-                try:
-                        self.conn.write('ga')
-                        response = self.conn.read()
+                
+                try:        
+                        self.conn.write(b'2')
+                        echo = self.conn.read()
 
-                        if(response == 'done'):
-                                pass
+                        if(ord(echo) == '255'):
+                                return False
+
+                        response = self.conn.read()
+                        if(response == '5'):
+                                return True
+
+                        elif(ord(echo) == '255'):
+                                return False
+                        
+                        
 
                 except serial.SerialException as e:
                         print(e)
+                        return False
                 
 
         def mimosa(self):
                 '''
                 Dispense mimosa or beverage corresponding to both pumps
                 '''
-                try:
-                        self.conn.write('mimosa')
-                        response = self.conn.read()
+          
+                try:        
+                        self.conn.write(b'3')
+                        echo = self.conn.read()
 
-                        if(response == 'done'):
-                                pass
+                        if(ord(echo) == '255'):
+                                return False
+
+                        response = self.conn.read()
+                        if(response == '5'):
+                                return True
+
+                        elif(ord(echo) == '255'):
+                                return False
+                        
+                        
 
                 except serial.SerialException as e:
                         print(e)
-                
+                        return False

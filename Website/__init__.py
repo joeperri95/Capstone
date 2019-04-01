@@ -24,15 +24,15 @@ def createApp():
 
             if res['firstname'] == '' or res['lastname'] == '':
                 flash("Bad")
-                logging.error("Empty name field: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Empty name field: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
 
             elif res['drink'] == 'Drink':
                 flash("Bad")
-                logging.error("Invalid drink order: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Invalid drink order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
                 
             elif res['station'] == 'Station':
                 flash("Bad")
-                logging.error("Invalid station order: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Invalid station order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
 
             else:
                 try:

@@ -24,18 +24,15 @@ def createApp():
 
             if res['firstname'] == '' or res['lastname'] == '':
                 flash("Bad")
-                logging.error(
-                    f"Empty name field: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
+                logging.error("Empty name field: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
 
             elif res['drink'] == 'Drink':
                 flash("Bad")
-                logging.error(
-                    f"Invalid drink order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
-
+                logging.error("Invalid drink order: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
+                
             elif res['station'] == 'Station':
                 flash("Bad")
-                logging.error(
-                    f"Invalid station order: {res['drink']},{res['firstname']},{res['lastname']},{res['station']}")
+                logging.error("Invalid station order: "+ str(res['drink']) + "," + str(res['firstname']) + "," str(res['lastname']) + ',' + str(res['station']))
 
             else:
                 try:
@@ -46,8 +43,7 @@ def createApp():
                     sock.close()
 
                     logging.info(
-                        f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
-                    #print( f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
+                        str(res['drink']) +' order from ' + str(res['firstname']) + ' ' + str(res['lastname']) + ' at ' + str(res['station']))
                     flash("Good")
 
                 except ConnectionRefusedError as e:
@@ -66,6 +62,7 @@ def createApp():
     def track():
         
         res = "didn't work"
+        
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         sock.bind((HOST, RECVPORT))

@@ -1,9 +1,10 @@
-int pump1 = 9; //OJ
-int pump2 = 10; //GA
+int pump1 = 9; //Orange Juice
+int pump2 = 10; //Ginger Ale
 int levelsensor = A0;
 int cupsensor = 8;
 int dir = 11;
 int elevator = 12;
+int r = 0; //Recieved Order
 
 void setup() {
   Serial.begin(9600);
@@ -18,8 +19,32 @@ void setup() {
   
 }
 
-void loop() {
-  test();
+void loop(){
+  if(Serial.available()){         //make sure we have serial connection
+    r = Serial.read() - '0';     //convert incoming ASCII to integer
+    
+    if (r == 1){
+      Serial.write(r+1);         // each if sends an echo and then a
+      oj();                      // completion response code (5)
+      Serial.write(5);
+    }
+    
+    if(r == 2){
+      Serial.write(r+2);
+      ga();
+      Serial.write(5);
+    }
+    
+    if(r == 3){
+      Serial.write(r+3);
+      mimosa();
+      Serial.write(5);
+    }
+    
+    else{  
+      Serial.write(-1);            // sends back a -1 if there are errors
+    }
+  }
 }
 
 
@@ -66,14 +91,3 @@ void elevatorUp(){
 void elevatorDown(){
   digitalWrite(dir,LOW);
 }
-
-void test(){
-  if (analogRead(levelsensor) > 100){
-    digitalWrite(pump1,HIGH);
-  }
-  else{
-   digitalWrite(pump1,LOW);
-  }
-  delay(100);
-  Serial.println(analogRead(levelsensor));
- }

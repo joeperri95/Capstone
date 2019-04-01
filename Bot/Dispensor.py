@@ -33,10 +33,10 @@ class Dispensor():
                 '''
         
                 try:        
-                        self.conn.write('')
+                        self.conn.write('oj')
                         response = self.conn.read()
 
-                        if(response):
+                        if(response == 'done'):
                                 pass
 
                 except serial.SerialException as e:
@@ -48,11 +48,28 @@ class Dispensor():
                 '''
                 Dispense ginger ale or beverage corresponding to pump 2
                 '''
-                self.conn.write('')
+                try:
+                        self.conn.write('ga')
+                        response = self.conn.read()
 
+                        if(response == 'done'):
+                                pass
+
+                except serial.SerialException as e:
+                        print(e)
+                
 
         def mimosa(self):
                 '''
                 Dispense mimosa or beverage corresponding to both pumps
                 '''
-                self.conn.write('')
+                try:
+                        self.conn.write('mimosa')
+                        response = self.conn.read()
+
+                        if(response == 'done'):
+                                pass
+
+                except serial.SerialException as e:
+                        print(e)
+                

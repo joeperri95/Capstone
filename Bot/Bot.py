@@ -9,6 +9,12 @@ import sys
 
 import Navigator
 import botstates
+import Dispensor
+import Listener
+import Pusher
+
+listenerPort = 12345
+pusherPort = 12346
 
 class Bot(threading.Thread):
     def __init__(self, serverQueue, serverLock, location):
@@ -29,12 +35,16 @@ class Bot(threading.Thread):
         self.destinationQueue = queue.Queue()
         self.destination = location
 
-        self.navigator = Navigator.Navigator("green")
+        self.navigator = Navigator.Navigator("")
+        self.dispensor = Dispensor.Dispensor()
+        self.listener = Listener.Listener(listenerPort, self.serverQueue, self.serverLock)
+        self.pusher = Pusher.Pusher(pusherPort, self.serverQueue, self.serverLock)
+
+        self.listener.start()
+        self.pusher.start()
     
     def update(self):
         
-        
-
         pass
 
     def determineState(self):
@@ -53,10 +63,7 @@ class Bot(threading.Thread):
         pass
 
     def run(self):
-
         #do initialization
-
-
 
         while(True):
 
@@ -71,25 +78,57 @@ class Bot(threading.Thread):
                     self.graph()
                     self.prevState = self.state
                     self.state = botstates.MOTION
+
+                elif(self.currentOrder.location == self.location):
+                    self.prevState = self.state
+                    self.state = botstates.DISPENSING
                 
 
             elif(self.state == botstates.MOTION):
                 print('motion state')
                 
-                pass
+                #self.navigator.start()
 
-            elif(self.state == botstates.WAITING_FOR_CUP):
-                pass
+                #TODO delete this and add proper navigation 
+                self.prevState = self.state
+                self.state = botstates.DISPENSING
 
             elif(self.state == botstates.DISPENSING):
-                pass
+                
+                if(self.currentOrder['drink'] == '1'):
+                    resp = self.dispensor.orangejuice()
+                    if(resp):
+                        self.prevState = self.state
+                        self.state = botstates.IDLE
+                    else:
+                        self.prevState = self.state
+                        self.state = botstates.ERROR
 
-            elif(self.state == botstates.WAITING_FOR_RETRIEVAL):
-                pass
+                elif(self.currentOrder['drink'] == '2'):
+                    resp = self.dispensor.gingerAle()
+                    if(resp):
+                        self.prevState = self.state
+                        self.state = botstates.IDLE
+                    else:
+                        self.prevState = self.state
+                        self.state = botstates.ERROR
+
+                elif(self.currentOrder['drink'] == '3'):
+                    resp = self.dispensor.mimosa()
+                    if(resp):
+                        self.prevState = self.state
+                        self.state = botstates.IDLE
+                    else:
+                        self.prevState = self.state
+                        self.state = botstates.ERROR
+
 
             elif(self.state == botstates.ALERT):
                 pass
             
             elif(self.state == botstates.LINE_LOST):
                 #perform recovery
+                pass
+
+            elif(self.state == botstates.ERROR):
                 pass

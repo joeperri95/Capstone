@@ -47,6 +47,7 @@ def createApp():
 
                     logging.info(
                         f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
+                    #print( f"{res['drink']} order from {res['firstname']} {res['lastname']} at {res['station']}")
                     flash("Good")
 
                 except ConnectionRefusedError as e:

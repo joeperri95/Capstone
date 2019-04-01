@@ -1,5 +1,6 @@
 import socket
 import pickle
+import time
 import threading
 import queue
 
@@ -46,7 +47,7 @@ class Pusher(threading.Thread):
                     print('connected to guy')
                     self.isActive = True
                 except ConnectionRefusedError as e:
-                    pass
+                    time.sleep(0.5)
             else:
                 try:
                     

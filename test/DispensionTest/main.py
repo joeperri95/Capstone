@@ -11,11 +11,16 @@ def main():
         order = input("enter order")
         
         if(order.upper() == 'ORANGE JUICE'):
-            disp.orangejuice()
+            
+            if(disp.orangejuice()):
+                print("good oj")
+
         elif(order.upper() == 'GINGER ALE'):
-            disp.gingerAle()
+            if(disp.gingerAle()):
+                print("good ginger ale")
         elif(order.upper() == 'MIMOSA'):
-            disp.mimosa()
+            if(disp.mimosa()):
+                print("good mimosa")
         else:
             print("invalid order")
         

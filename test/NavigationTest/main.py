@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 
-import sys
+import sys 
 sys.path.append("/home/pi/Capstone/Bot")
 
 from Bot import Navigator

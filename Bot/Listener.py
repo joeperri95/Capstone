@@ -53,7 +53,7 @@ class Listener(threading.Thread):
             if(self.isActive == False): 
                 self.sock.listen(1)
                 self.conn, addr = self.sock.accept()
-                print("connection from " + addr[0] + ":" + addr[1])
+                print("connection from " + str(addr[0]) + ":" + str(addr[1]))
                 self.isActive = True
             
             data = self.conn.recv(self.BUFF_SIZE)
@@ -72,7 +72,7 @@ class Listener(threading.Thread):
 
                 #push it to queue
                 self.serverLock.acquire()
-                self.serverQueue.push(finalOrder)
+                self.serverQueue.put(finalOrder)
                 self.serverLock.release()
                 
             else:

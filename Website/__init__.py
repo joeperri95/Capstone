@@ -47,7 +47,7 @@ def createApp():
                     flash("Good")
 
                 except ConnectionRefusedError as e:
-                    logging.error(f"no socket found order will not be processed")
+                    logging.error("no socket found order will not be processed")
                     flash('No Server')
 
         

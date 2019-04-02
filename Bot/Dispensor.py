@@ -40,6 +40,7 @@ class Dispensor():
                                 return False
 
                         response = self.conn.read()
+                        print(ord(response))
                         if(ord(response) == 5):
                                 print('done')
                                 return True

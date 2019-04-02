@@ -33,8 +33,10 @@ class Dispensor():
                 '''
         
                 try:        
+                        print('writing 1 to arduino')
                         self.conn.write(b'1')
                         echo = self.conn.read()
+                        print("got " + str(echo) + " from arduino")
 
                         if(ord(echo) == 255):
                                 return False

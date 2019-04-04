@@ -51,7 +51,7 @@ class Listener(threading.Thread):
 
         while(True):    
             if(self.isActive == False): 
-                self.sock.listen(1)
+                self.sock.listen(5)
                 self.conn, addr = self.sock.accept()
                 print("connection from " + str(addr[0]) + ":" + str(addr[1]))
                 self.isActive = True

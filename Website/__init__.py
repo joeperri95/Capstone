@@ -12,10 +12,10 @@ SENDPORT = 12345
 RECVPORT = 12346
 
 def createApp():
- 
+
     app = Flask(__name__, static_url_path='/static')
     app.secret_key = "super secret key"
-    
+
     @app.route('/', methods=["GET", "POST"])
     def mainRoute():
 
@@ -29,7 +29,7 @@ def createApp():
             elif res['drink'] == 'Drink':
                 flash("Bad")
                 logging.error("Invalid drink order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
-                
+
             elif res['station'] == 'Station':
                 flash("Bad")
                 logging.error("Invalid station order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
@@ -50,7 +50,7 @@ def createApp():
                     logging.error("no socket found order will not be processed")
                     flash('No Server')
 
-        
+
 
         return render_template('index.html', caption="The Next Generation Bar Experience.")
 
@@ -60,40 +60,39 @@ def createApp():
 
     @app.route('/track')
     def track():
-        
+
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         res = ""
         try:
-            
 
-            sock.bind((HOST, RECVPORT))    
+
+            sock.bind((HOST, RECVPORT))
             sock.listen(5)
-    
+
             conn, addr = sock.accept()
-            
+
             while(1):
-            
+
                 data = conn.recv(1024)
-                
+
                 if(data):
                     serialObject = pickle.loads(data)
-                    res = res + "<ul><li>{}</li><li>{}</li><li>{}</li><li>{}</li></ul>"\
-                        .format(serialObject['firstname'],\
-                            serialObject['lastname'],\
-                            serialObject['station'],\
-                            serialObject['drink'])
-                    
+                    # res = res + "<ul><li>{}</li><li>{}</li><li>{}</li><li>{}</li></ul>"\
+                    #     .format(serialObject['firstname'],\
+                    #         serialObject['lastname'],\
+                    #         serialObject['station'],\
+                    #         serialObject['drink'])
                 else:
-                    break                
+                    break
 
             sock.close()
         except TimeoutError as e:
             pass
         finally:
-            return res
+            return render_template('track.html', title="Current", caption="Now Serving",FN=serialObject['firstname'],LN=serialObject['lastname'],LOC=serialObject['station'],DRINK=serialObject['drink'])
             sock.close()
-        #return render_template('track.html', title="Track Order", caption="Track Your Order Live!")
+
 
     @app.route('/project')
     def project():
@@ -110,7 +109,7 @@ teammates = [
         'Task2': 'Human Machine Interface',
         'Task3': 'Group Administration',
         'LinkedIn': 'https://www.linkedin.com/in/maharshipatel1997/',
-        'Img': "static/Maharshi.jpeg",
+        'Img': "static/Maharshi.jpg",
     },
     {
         'Name': 'Malcolm MacEachern',
@@ -123,7 +122,7 @@ teammates = [
     },
     {
         'Name': 'Joe Perri',
-        'Bio': 'Joe is an aspiring embedded systems engineer who worked on the firmware for the project, helping with the HMI and overall logic system. This project acted as a great opportunity to expand his experience in software design and image processing.',
+        'Bio': 'Joe is an aspiring embedded systems engineer who worked on the firmware for the project, helping with the HMI, the overall logic and controls systems. This project acted as a great opportunity to expand his experience in software design and image processing.',
         'Task1': 'Navigation',
         'Task2': 'Supervisory Logic',
         'Task3': 'Multithreading',
@@ -148,5 +147,3 @@ if __name__ == '__main__':
 
     app = createApp()
     app.run(debug=True)
-
-  

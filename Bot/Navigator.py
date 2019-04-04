@@ -137,7 +137,7 @@ class Navigator(threading.Thread):
             r = cv2.inRange(self.hsv, (RED_H_LOW, RED_S_LOW, RED_V_LOW), (RED_H_HIGH ,RED_S_HIGH, RED_V_HIGH))
             g = cv2.inRange(self.hsv, (GREEN_H_LOW, GREEN_S_LOW, GREEN_V_LOW), (GREEN_H_HIGH, GREEN_S_HIGH, GREEN_V_HIGH))
             y = cv2.inRange(self.hsv, (YELLOW_H_LOW,YELLOW_S_LOW, YELLOW_V_LOW), (YELLOW_H_HIGH, YELLOW_S_HIGH, YELLOW_V_HIGH))
-            
+
             #perform open morphological operation to fill region
             r = cv2.morphologyEx(r, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3,3)))
             g = cv2.morphologyEx(g, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3,3)))
@@ -192,7 +192,7 @@ class Navigator(threading.Thread):
         #detect yellow square
         minArea = 10
         
-        if(self.yc.contourArea > minArea):
+        if(cv2.contourArea(max(self.yc,key=cv2.contourArea)) > minArea):
             print('detected')
             return True
         

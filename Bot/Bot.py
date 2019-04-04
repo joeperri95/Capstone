@@ -12,12 +12,13 @@ import botstates
 import Dispensor
 import Listener
 import Pusher
+import directions
 
 listenerPort = 12345
 pusherPort = 12346
 
 class Bot(threading.Thread):
-    def __init__(self, serverQueue, serverLock, location):
+    def __init__(self, serverQueue, serverLock, location, direction):
 
         #These variables deal with orders being processed from server
         self.serverQueue = serverQueue
@@ -30,12 +31,7 @@ class Bot(threading.Thread):
         self.state = botstates.IDLE
         self.prevState = botstates.IDLE
 
-        #these variables determine location of machine
-        self.location = location
-        self.destinationQueue = queue.Queue()
-        self.destination = location
-
-        self.navigator = Navigator.Navigator("")
+        self.navigator = Navigator.Navigator(directions.getDir(direction), location)
         self.dispensor = Dispensor.Dispensor()
         self.listener = Listener.Listener(listenerPort, self.serverQueue, self.serverLock)
         self.pusher = Pusher.Pusher(pusherPort, self.serverQueue, self.serverLock)
@@ -55,12 +51,6 @@ class Bot(threading.Thread):
         
         pass
 
-    def graph(self):
-        #calculate route to destination
-        
-
-
-        pass
 
     def run(self):
         #do initialization
@@ -73,21 +63,22 @@ class Bot(threading.Thread):
                 
                 self.currentOrder = self.serverQueue.get(block=True)
                 
-                if(self.currentOrder.location != self.location):
+                if(self.currentOrder.location != self.navigator.getDestination()):
                     self.destination = self.currentOrder.location
-                    self.graph()
+                    
                     self.prevState = self.state
                     self.state = botstates.MOTION
 
-                elif(self.currentOrder.location == self.location):
+                elif(self.currentOrder.location == self.navigator.getDestination()):
                     self.prevState = self.state
                     self.state = botstates.DISPENSING
-                
+            
 
             elif(self.state == botstates.MOTION):
                 print('motion state')
                 
-                #self.navigator.start()
+                self.navigator = Navigator.Navigator(directions.getDir(self.navigator.direction), self.navigator.location)
+                self.navigator.start()
 
                 #TODO delete this and add proper navigation 
                 self.prevState = self.state

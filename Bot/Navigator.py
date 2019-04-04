@@ -3,18 +3,11 @@
 '''
 TODO
 
-implement directions
-
 take contour and get output
 
 only do one calculation per direction
 
-
-do yellow detection
-
-
 station IDS
-
 '''
 
 
@@ -37,7 +30,7 @@ YELLOW_LOW = 0
 YELLOW_HIGH = 40
 
 class Navigator(threading.Thread):
-    def __init__(self, opt=directions.UP):
+    def __init__(self, opt=directions.UP, location=(1,1)):
         threading.Thread.__init__(self)
 
         #motor controller class
@@ -60,6 +53,12 @@ class Navigator(threading.Thread):
         #center of line contour
         self.center = (0, 0)
 
+        #these variables determine location of machine
+        self.location = location
+        self.globalDestination = location
+        self.localDestination = location
+        self.destinationQueue = queue.Queue()
+
     def __del__(self):
         try:
             self.cap.release()
@@ -67,21 +66,54 @@ class Navigator(threading.Thread):
             #if class is never initialized cap will not be created
             pass
 
-    def update(self):
-        #update logic run each tick
-
-        self.lastFrame = self.frame
-        _ , self.frame = self.cap.read()
-        self.hsv = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
-
-        self.processLine()
-        self.detect()
-        self.setMotors()
-
-    def setOpt(self, newopt):
+    def setDirection(self, newopt):
         res = directions.getDir(newopt)
         if(res):
             self.opt = newopt
+
+    def graph(self):
+        #calculate route to destination
+        
+        self.destinationQueue = queue.Queue()
+        
+        xdiff = self.globalDestination[0] - self.location[0]
+        ydiff = self.globalDestination[1] - self.location[1]
+        
+        x = self.location[0]
+        y = self.location[1]
+
+        if(xdiff < 0):
+            while(x != self.globalDestination[0]):
+                x -= 1
+                self.destinationQueue.put((x, y))
+            
+        elif(xdiff > 0):
+            while(x != self.globalDestination[0]):
+                x += 1
+                self.destinationQueue.put((x, y))
+            
+
+        if(ydiff < 0):
+            while(y != self.globalDestination[1]):
+                y -= 1
+                self.destinationQueue.put((x, y))
+            
+
+        elif(ydiff > 0):
+            while(y != self.globalDestination[0]):
+                y += 1
+                self.destinationQueue.put((x, y))
+
+    def setDestination(self, dest):
+        self.globalDestination = dest
+        self.graph()
+
+    def getLocation(self):
+        return self.location
+
+    def getDestination(self):
+        return self.globalDestination
+
 
     def processLine(self):
         
@@ -137,17 +169,26 @@ class Navigator(threading.Thread):
                         cy = int(M["m01"]/M["m00"])
 
                         self.center = (cx, cy)
-                    
-                    
-                
-
+                            
         except TypeError as e:
             print(e)
 
         
     def detect(self):
-        if(self.yc.contourArea > 10):
+        #detect yellow square
+        minArea = 10
+        
+        if(self.yc.contourArea > minArea):
             print('detected')
+            return True
+        
+        return False
+    
+    def turnLeft(self):
+        
+        pass
+
+    def turnRight(self):
         pass
 
     def setMotors(self):
@@ -174,6 +215,21 @@ class Navigator(threading.Thread):
             
 
     def run(self):
+        '''
+        main logic loop
+        '''
         while(True):
-            self.update()
- 
+            self.lastFrame = self.frame
+            _ , self.frame = self.cap.read()
+            self.hsv = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
+
+            self.processLine()
+            stop = self.detect()
+            if(stop):
+                self.motors.stop()
+                if(self.destinationQueue.empty()):
+                    break
+                else:
+                    self.localDestination = self.destinationQueue.get()
+            else:
+                self.setMotors()

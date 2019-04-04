@@ -70,3 +70,6 @@ class Motors():
 			self.M2.stop()
 
 		
+	def stop(self):
+		self.M1.stop()
+		self.M2.stop()

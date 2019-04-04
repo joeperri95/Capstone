@@ -43,6 +43,7 @@ class Motors():
 
 	# rotate right
 	def rightTimed(self, pwm, seconds):
+		
 		startTime = time.time()
 		elapsedTime = 0
 		
@@ -50,4 +51,22 @@ class Motors():
 			elapsedTime = time.time() - startTime
 			self.M1.backward(pwm)
 			self.M2.forward(pwm)
-	
+
+	# directly give motors value
+	def setMotors(self, m1, m2):
+
+		if(m1 > 0):
+			self.M1.forward(m1)
+		elif(m1 < 0):
+			self.M1.backward(m1)
+		elif(m1 == 0):
+			self.M1.stop()
+
+		if(m2 > 0):
+			self.M2.forward(m2)
+		elif(m2 < 0):
+			self.M2.backward(m2)
+		elif(m2 == 0):
+			self.M2.stop()
+
+		

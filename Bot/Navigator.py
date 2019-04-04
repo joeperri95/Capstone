@@ -24,7 +24,9 @@ import queue
 import cv2
 import numpy as np
 import Motors
+import directions
 
+#tunable parameters
 RED_LOW = 150
 RED_HIGH = 200
 
@@ -35,7 +37,7 @@ YELLOW_LOW = 0
 YELLOW_HIGH = 40
 
 class Navigator(threading.Thread):
-    def __init__(self, opt="up"):
+    def __init__(self, opt=directions.UP):
         threading.Thread.__init__(self)
 
         #motor controller class
@@ -48,18 +50,22 @@ class Navigator(threading.Thread):
         self.hsv = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
         
         self.h, self.w = self.frame.shape[:2]
-        self.opt = opt
+        self.direction = directions.getDir(opt)
 
         self.red = np.zeros((self.h, self.w, 3), dtype=np.uint8)
         self.green = np.zeros((self.h, self.w, 3), dtype=np.uint8)
         self.yellow = np.zeros((self.h, self.w, 3), dtype=np.uint8)
-        self.draw = np.zeros((self.h, self.w, 3), dtype=np.uint8)
+        #self.draw = np.zeros((self.h, self.w, 3), dtype=np.uint8)
 
         #center of line contour
         self.center = (0, 0)
 
     def __del__(self):
-        self.cap.release()
+        try:
+            self.cap.release()
+        except NameError as e:
+            #if class is never initialized cap will not be created
+            pass
 
     def update(self):
         #update logic run each tick
@@ -73,7 +79,9 @@ class Navigator(threading.Thread):
         self.setMotors()
 
     def setOpt(self, newopt):
-        self.opt = newopt
+        res = directions.getDir(newopt)
+        if(res):
+            self.opt = newopt
 
     def processLine(self):
         
@@ -95,16 +103,17 @@ class Navigator(threading.Thread):
             self.yellow = cv2.medianBlur(y, 3)
 
             #get contours
-            yc, _ = cv2.findContours(self.yellow, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-            rc, _ = cv2.findContours(self.red, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-            gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            self.yc, _ = cv2.findContours(self.yellow, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            self.rc, _ = cv2.findContours(self.red, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            self.gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 
-            if(self.opt == "up"):
-                if(rc):
-                    rcmax = max(rc, key=cv2.contourArea)
+            if(self.direction == directions.UP):
+                if(self.rc):
+                    rcmax = max(self.rc, key=cv2.contourArea)
                     M = cv2.moments(rcmax)
 
+                    #if no contour put center in center of screen
                     if(M["m00"] == 0):
                         cx = int(self.w / 2)
                         cy = int(self.h / 2)
@@ -113,7 +122,21 @@ class Navigator(threading.Thread):
                         cy = int(M["m01"]/M["m00"])
 
                         self.center = (cx, cy)
+            
+            elif(self.direction == directions.LEFT):
+                if(self.gc):
+                    gcmax = max(self.gc, key=cv2.contourArea)
+                    M = cv2.moments(gcmax)
 
+                    #if no contour put center in center of screen
+                    if(M["m00"] == 0):
+                        cx = int(self.w / 2)
+                        cy = int(self.h / 2)
+                    else:    
+                        cx = int(M["m10"]/M["m00"])
+                        cy = int(M["m01"]/M["m00"])
+
+                        self.center = (cx, cy)
                     
                     
                 
@@ -123,18 +146,32 @@ class Navigator(threading.Thread):
 
         
     def detect(self):
+        if(self.yc.contourArea > 10):
+            print('detected')
         pass
 
     def setMotors(self):
 
-        if(self.center[0] > int(self.w * 0.75)):
-            self.motors.leftTimed(0.1, 0.01)
+        if(self.direction == directions.UP):
+            if(self.center[0] > int(self.w * 0.75)):
+                self.motors.leftTimed(0.1, 0.01)
 
-        elif(self.center[0] < int(self.w * 0.25)):
-            self.motors.rightTimed(0.1, 0.01)
+            elif(self.center[0] < int(self.w * 0.25)):
+                self.motors.rightTimed(0.1, 0.01)
+            
+            else:
+                self.motors.forwardTimed(0.1, 0.01)
         
-        else:
-            self.motors.forwardTimed(0.1, 0.01)
+        elif(self.direction == directions.LEFT):
+            if(self.center[1] > int(self.h * 0.75)):
+                self.motors.leftTimed(0.1, 0.01)
+
+            elif(self.center[1] < int(self.h * 0.25)):
+                self.motors.rightTimed(0.1, 0.01)
+            
+            else:
+                self.motors.forwardTimed(0.1, 0.01)
+            
 
     def run(self):
         while(True):

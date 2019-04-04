@@ -17,8 +17,8 @@ class Motors():
 
 		while elapsedTime < seconds:
 			elapsedTime = time.time() - startTime
-			self.M1.forwards(pwm) 
-			self.M2.forwards(pwm)
+			self.M1.forward(pwm) 
+			self.M2.forward(pwm)
 
 	# backwards longitudinal 
 	# pwm = 0 to 1

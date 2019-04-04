@@ -1,5 +1,5 @@
-int dir = 9;
-int elevator = 10;
+int dir = 0;
+int elevator = 6;
 
 void setup() {
   Serial.begin(9600);
@@ -9,24 +9,27 @@ void setup() {
 }
 
 void loop() {
-
-
+  up();
+  while (1 == 1){
+    
+  }
 }
 
 
 void up(){
   int i;
+  int j;
   digitalWrite(dir,HIGH);
   
-  for (i = 0; i<255; i++){
+  for (i = 1; i<255; i++){
     analogWrite(elevator,i);
-    delay(1);
+    delay(10);
   }
+  delay(75);
   
-  delay(100);
-  
-  for (i = 255; i == 0; i--){
-    analogWrite(elevator,i);
-    delay(1)
+  for (j = 255; j > 0; j--){
+    analogWrite(elevator,j);
+    delay(10);
   }
+  analogWrite(elevator,0);
 }

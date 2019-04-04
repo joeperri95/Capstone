@@ -6,17 +6,17 @@ import queue
 
 class Pusher(threading.Thread):
     '''
-    listener class will wait for orders to be processed in the flask process
-    flask will send listener tcp/ip messages 
-    listener will push messages to order queue
+    pusher class will wait for a user to go to the order tracking tab
+    pusher will send flask tcp/ip messages 
     '''
+
     def __init__(self, PORT, serverQueue, serverLock):
         '''
         takes port number, server queue object and corresponding mutex
 
         '''
         self.address = ('localhost', PORT)
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock = None 
         threading.Thread.__init__(self)
         self.isActive = False
         self.BUFF_SIZE = 1024
@@ -43,10 +43,15 @@ class Pusher(threading.Thread):
         while(True):    
             if(self.isActive == False): 
                 try:
+                    self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                     self.sock.connect(self.address)
                     print('connected to guy')
                     self.isActive = True
                 except ConnectionRefusedError as e:
+                    print(e)
+                    time.sleep(0.5)
+                except Exception as f:
+                    print(f)
                     time.sleep(0.5)
             else:
                 try:
@@ -71,10 +76,13 @@ class Pusher(threading.Thread):
                         self.serverQueue.put(tempQueue.get())
 
                     self.serverLock.release()
-                    if(getFirst ==1):
+                    
+                    if(getFirst == 1):
                         serializedObject = pickle.dumps(order)
                         self.sock.send(serializedObject)
-                        
+                        self.sock.close()
+                        self.isActive = False
+
                 except ConnectionAbortedError as e:
                     #if server connection dies keep running 
                     if(self.sock is not None):

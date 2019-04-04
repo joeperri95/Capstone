@@ -61,17 +61,17 @@ def createApp():
     @app.route('/track')
     def track():
         
-        res = "didn't work"
-
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
-        sock.bind((HOST, RECVPORT))
-        sock.listen(1)
-
+        res = ""
         try:
             
+
+            sock.bind((HOST, RECVPORT))    
+            sock.listen(5)
+    
             conn, addr = sock.accept()
-            res = ""
+            
             while(1):
             
                 data = conn.recv(1024)
@@ -92,6 +92,7 @@ def createApp():
             pass
         finally:
             return res
+            sock.close()
         #return render_template('track.html', title="Track Order", caption="Track Your Order Live!")
 
     @app.route('/project')

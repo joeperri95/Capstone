@@ -190,8 +190,11 @@ class Navigator(threading.Thread):
         
     def detect(self):
         #detect yellow square
-        minArea = 10
+        minArea = 100
         
+        if(not self.yc):
+            return False
+
         if(cv2.contourArea(max(self.yc,key=cv2.contourArea)) > minArea):
             print('detected')
             return True

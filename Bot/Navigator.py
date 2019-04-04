@@ -20,14 +20,28 @@ import Motors
 import directions
 
 #tunable parameters
-RED_LOW = 150
-RED_HIGH = 200
+RED_H_LOW = 120
+RED_H_HIGH = 200
+RED_S_LOW = 105
+RED_S_HIGH = 255
+RED_V_LOW = 150
+RED_V_HIGH = 255
 
-GREEN_LOW = 60
-GREEN_HIGH = 100
+GREEN_H_LOW = 70
+GREEN_H_HIGH = 110
+GREEN_S_LOW = 150
+GREEN_S_HIGH = 255
+GREEN_V_LOW = 115
+GREEN_V_HIGH = 255
 
-YELLOW_LOW = 0
-YELLOW_HIGH = 40
+
+YELLOW_H_LOW = 0
+YELLOW_H_HIGH = 40
+YELLOW_S_LOW = 150
+YELLOW_S_HIGH = 255
+YELLOW_V_LOW = 200
+YELLOW_V_HIGH = 255
+
 
 class Navigator(threading.Thread):
     def __init__(self, opt=directions.UP, location=(1,1)):
@@ -122,7 +136,7 @@ class Navigator(threading.Thread):
             #threshold by hsv value
             r = cv2.inRange(self.hsv, (RED_LOW, 10, 15), (RED_HIGH ,255, 200))
             g = cv2.inRange(self.hsv, (GREEN_LOW, 10, 15), (GREEN_HIGH, 255, 200))
-            y = cv2.inRange(self.hsv, (YELLOW_LOW,10, 15), (YELLOW_HIGH, 255, 200))
+            y = cv2.inRange(self.hsv, (YELLOW_LOW,10, 200), (YELLOW_HIGH, 255, 255))
 
             #perform open morphological operation to fill region
             r = cv2.morphologyEx(r, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3,3)))
@@ -135,9 +149,9 @@ class Navigator(threading.Thread):
             self.yellow = cv2.medianBlur(y, 3)
 
             #get contours
-            self.yc, _ = cv2.findContours(self.yellow, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-            self.rc, _ = cv2.findContours(self.red, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-            self.gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            _, self.yc, _ = cv2.findContours(self.yellow, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            _, self.rc, _ = cv2.findContours(self.red, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            _, self.gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 
             if(self.direction == directions.UP):

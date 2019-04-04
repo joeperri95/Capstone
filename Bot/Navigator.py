@@ -212,23 +212,23 @@ class Navigator(threading.Thread):
 
         if(self.direction == directions.UP):
             if(self.center[0] > int(self.w * 0.75)):
-                self.motors.leftTimed(0.1, 0.01)
+                self.motors.leftTimed(1, 0.1)
 
             elif(self.center[0] < int(self.w * 0.25)):
-                self.motors.rightTimed(0.1, 0.01)
+                self.motors.rightTimed(1, 0.1)
             
             else:
-                self.motors.forwardTimed(0.1, 0.01)
+                self.motors.forwardTimed(1, 0.1)
         
         elif(self.direction == directions.LEFT):
             if(self.center[1] > int(self.h * 0.75)):
-                self.motors.leftTimed(0.1, 0.01)
+                self.motors.leftTimed(1, 0.1)
 
             elif(self.center[1] < int(self.h * 0.25)):
-                self.motors.rightTimed(0.1, 0.01)
+                self.motors.rightTimed(1, 0.1)
             
             else:
-                self.motors.forwardTimed(0.1, 0.01)
+                self.motors.forwardTimed(1, 0.1)
             
 
     def run(self):

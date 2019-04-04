@@ -25,19 +25,17 @@ void loop(){
     
     if (r == 1){
       Serial.write(r+1);         // each if sends an echo and then a
-      oj();                      // completion response code (5)
+      oj();
       Serial.write(5);
     }
     
     if(r == 2){
       Serial.write(r+2);
-      ga();
       Serial.write(5);
     }
     
     if(r == 3){
       Serial.write(r+3);
-      mimosa();
       Serial.write(5);
     }
     
@@ -83,11 +81,4 @@ void mimosa(){
   }
   delay(100);
   Serial.println(analogRead(levelsensor));
-}
-
-void elevatorUp(){
-  digitalWrite(dir,HIGH);
-}
-void elevatorDown(){
-  digitalWrite(dir,LOW);
 }

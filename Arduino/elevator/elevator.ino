@@ -9,17 +9,17 @@ void setup() {
 }
 
 void loop() {
-  up();
+  elevatorControl(1);
   while (1 == 1){
     
   }
 }
 
 
-void up(){
+void elevatorControl(int dirCtrl){
   int i;
   int j;
-  digitalWrite(dir,HIGH);
+  digitalWrite(dir,dirCtrl);
   
   for (i = 1; i<255; i++){
     analogWrite(elevator,i);

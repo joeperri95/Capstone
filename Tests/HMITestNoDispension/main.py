@@ -25,7 +25,7 @@ def main():
     currTime = time.time()
 
     while(True):
-        if(currTime >= time.time() + 1000):    
+        if(currTime + 10 < time.time()):    
             ql.acquire()
             if(not q.empty()):
                 q.get()

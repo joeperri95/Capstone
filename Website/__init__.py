@@ -11,6 +11,7 @@ HOST = 'localhost'
 SENDPORT = 12345
 RECVPORT = 12346
 
+
 def createApp():
 
     app = Flask(__name__, static_url_path='/static')
@@ -24,15 +25,18 @@ def createApp():
 
             if res['firstname'] == '' or res['lastname'] == '':
                 flash("Bad")
-                logging.error("Empty name field: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Empty name field: " + str(res['drink']) + "," + str(
+                    res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
 
             elif res['drink'] == 'Drink':
                 flash("Bad")
-                logging.error("Invalid drink order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Invalid drink order: " + str(res['drink']) + "," + str(
+                    res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
 
             elif res['station'] == 'Station':
                 flash("Bad")
-                logging.error("Invalid station order: "+ str(res['drink']) + "," + str(res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
+                logging.error("Invalid station order: " + str(res['drink']) + "," + str(
+                    res['firstname']) + "," + str(res['lastname']) + ',' + str(res['station']))
 
             else:
                 try:
@@ -43,14 +47,13 @@ def createApp():
                     sock.close()
 
                     logging.info(
-                        str(res['drink']) +' order from ' + str(res['firstname']) + ' ' + str(res['lastname']) + ' at ' + str(res['station']))
+                        str(res['drink']) + ' order from ' + str(res['firstname']) + ' ' + str(res['lastname']) + ' at ' + str(res['station']))
                     flash("Good")
 
                 except ConnectionRefusedError as e:
-                    logging.error("no socket found order will not be processed")
+                    logging.error(
+                        "no socket found order will not be processed")
                     flash('No Server')
-
-
 
         return render_template('index.html', caption="The Next Generation Bar Experience.")
 
@@ -61,11 +64,17 @@ def createApp():
     @app.route('/track')
     def track():
 
+        # if (queueNotempty):
+        #     return "first In Queue page with info"
+        # else if (queueEmpty):
+        #     return "not serving anyone"
+        # else:
+        #     return "error, notify team"
+
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         res = ""
         try:
-
 
             sock.bind((HOST, RECVPORT))
             sock.listen(5)
@@ -90,9 +99,8 @@ def createApp():
         except TimeoutError as e:
             pass
         finally:
-            return render_template('track.html', title="Current", caption="Now Serving",FN=serialObject['firstname'],LN=serialObject['lastname'],LOC=serialObject['station'],DRINK=serialObject['drink'])
+            # return render_template('track.html', title="Current", caption="Now Serving", FN=serialObject['firstname'], LN=serialObject['lastname'], LOC=serialObject['station'], DRINK=serialObject['drink'])
             sock.close()
-
 
     @app.route('/project')
     def project():
@@ -143,7 +151,6 @@ if __name__ == '__main__':
 
     logging.basicConfig(format="%(asctime)s %(levelname)s %(message)s",
                         filename="server.log", level=logging.DEBUG)
-
 
     app = createApp()
     app.run(debug=True)

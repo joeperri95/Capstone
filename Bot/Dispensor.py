@@ -14,7 +14,6 @@ class Dispensor():
         def __init__(self):
                 '''
                 Initialize serial module and send commands
-
                 '''
 
                 self.conn = serial.Serial()

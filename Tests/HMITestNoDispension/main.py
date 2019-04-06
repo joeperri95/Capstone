@@ -1,21 +1,21 @@
 #!/usr/bin/env python3.5
 
 import sys
-sys.path.append('/home/joe/Capstone')
+sys.path.append('/home/pi/Capstone')
 
 from Bot import Listener
 from Bot import Pusher
-from Bot import Dispensor
 
 import queue
 import threading
 import socket
+import time
+
 
 def main():
     q = queue.Queue()
     ql = threading.Lock()
 
-    
     listenerThread = Listener.Listener(12345, q, ql)
     pusherThread = Pusher.Pusher(12346, q, ql)
 
@@ -23,7 +23,11 @@ def main():
     pusherThread.start()
 
     while(True):
-        pass
+        time.sleep(1)
+        ql.acquire()
+        if(not q.empty()):
+            q.get()
+        ql.release()
 
     listenerThread.join()
     pusherThread.join()

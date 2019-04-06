@@ -5,9 +5,13 @@ TODO
 
 take contour and get output
 
-only do one calculation per direction
-
 station IDS
+'''
+
+'''
+red = up/down
+green = left/right
+
 '''
 
 
@@ -16,8 +20,10 @@ import threading
 import queue
 import cv2
 import numpy as np
+import os
 import Motors
 import directions
+from utils import espeak
 
 #tunable parameters
 RED_H_LOW = 120
@@ -40,11 +46,10 @@ YELLOW_H_HIGH = 40
 YELLOW_S_LOW = 150
 YELLOW_S_HIGH = 255
 YELLOW_V_LOW = 200
-YELLOW_V_HIGH = 255
-
+YELLOW_V_HIGH = 255    
 
 class Navigator(threading.Thread):
-    def __init__(self, opt=directions.UP, location=(1,1)):
+    def __init__(self, destination,opt=directions.UP, location=(1,1), debug=False):
         threading.Thread.__init__(self)
 
         #motor controller class
@@ -69,9 +74,9 @@ class Navigator(threading.Thread):
 
         #these variables determine location of machine
         self.location = location
-        self.globalDestination = location
-        self.localDestination = location
-        self.destinationQueue = queue.Queue()
+        self.globalDestination = destination
+        self.destinationQueue = queue.Quexue()
+        self.graph()
 
     def __del__(self):
         try:
@@ -87,7 +92,6 @@ class Navigator(threading.Thread):
 
     def graph(self):
         #calculate route to destination
-        
         self.destinationQueue = queue.Queue()
         
         xdiff = self.globalDestination[0] - self.location[0]
@@ -114,7 +118,7 @@ class Navigator(threading.Thread):
             
 
         elif(ydiff > 0):
-            while(y != self.globalDestination[0]):
+            while(y != self.globalDestination[1]):
                 y += 1
                 self.destinationQueue.put((x, y))
 
@@ -154,7 +158,7 @@ class Navigator(threading.Thread):
             _, self.gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 
-            if(self.direction == directions.UP):
+            if(self.direction == directions.UP or self.direction == direction.DOWN):
                 if(self.rc):
                     rcmax = max(self.rc, key=cv2.contourArea)
                     M = cv2.moments(rcmax)
@@ -169,7 +173,7 @@ class Navigator(threading.Thread):
 
                         self.center = (cx, cy)
             
-            elif(self.direction == directions.LEFT):
+            elif(self.direction == directions.LEFT or self.direction == directions.RIGHT):
                 if(self.gc):
                     gcmax = max(self.gc, key=cv2.contourArea)
                     M = cv2.moments(gcmax)
@@ -190,46 +194,165 @@ class Navigator(threading.Thread):
         
     def detect(self):
         #detect yellow square
-        minArea = 100
+        minArea = 50
         
         if(not self.yc):
             return False
 
         if(cv2.contourArea(max(self.yc,key=cv2.contourArea)) > minArea):
-            print('detected')
+            espeak('stop')
             return True
         
         return False
     
     def turnLeft(self):
+        espeak('turn left')
+        if(self.direction == directions.UP):
+            
+            self.direction = directions.LEFT
+            pass
+        elif(self.direction == directions.LEFT):
         
-        pass
+            self.directions = directions.DOWN
+            pass
+        elif(self.direction == directions.RIGHT):
+            
+            self.direction = directions.UP
+            pass
+        elif(self.direction == directions.DOWN):
+            
+            self.direction = directions.RIGHT
+            pass
+        
 
     def turnRight(self):
-        pass
+        espeak("turn right")
+        if(self.direction == directions.UP):
+            
+            self.direction = directions.RIGHT
+            pass
+        elif(self.direction == directions.LEFT):
+
+            self.direction = directions.UP
+            pass
+        elif(self.direction == directions.RIGHT):
+
+            self.direction = directions.DOWN
+            pass
+        elif(self.direction == directions.DOWN):
+            
+            self.direction = directions.LEFT
+            pass
+        
 
     def setMotors(self):
 
         if(self.direction == directions.UP):
             if(self.center[0] > int(self.w * 0.75)):
+                espeak('slight left')
                 self.motors.leftTimed(1, 0.1)
 
             elif(self.center[0] < int(self.w * 0.25)):
+                espeak('slight right')
                 self.motors.rightTimed(1, 0.1)
             
             else:
                 self.motors.forwardTimed(1, 0.1)
         
+        elif(self.direction == directions.DOWN):
+            if(self.center[0] > int(self.w * 0.75)):
+                espeak('slight right')
+                self.motors.leftTimed(1, 0.1)
+
+            elif(self.center[0] < int(self.w * 0.25)):
+                espeak('slight left')
+                self.motors.rightTimed(1, 0.1)
+            
+            else:
+                self.motors.forwardTimed(1, 0.1)
+        
+
         elif(self.direction == directions.LEFT):
             if(self.center[1] > int(self.h * 0.75)):
+                espeak('slight left')
                 self.motors.leftTimed(1, 0.1)
 
             elif(self.center[1] < int(self.h * 0.25)):
+                espeak('slight right')
+                self.motors.rightTimed(1, 0.1)
+            
+            else:
+                self.motors.forwardTimed(1, 0.1)
+
+        elif(self.direction == directions.RIGHT):
+            if(self.center[1] > int(self.h * 0.75)):
+                espeak('slight right')
+                self.motors.leftTimed(1, 0.1)
+
+            elif(self.center[1] < int(self.h * 0.25)):
+                espeak('slight left')
                 self.motors.rightTimed(1, 0.1)
             
             else:
                 self.motors.forwardTimed(1, 0.1)
             
+    def turningLogic(self):
+        '''
+        determine if the robot needs to turn based on destination 
+        '''
+
+        if(self.location[0] == self.localDestination[0]):
+            if((self.localDestination[1] - 1) == self.location[1]):
+                if(self.direction == directions.LEFT):
+                    return
+
+                elif(self.direction == directions.RIGHT):
+                    self.turnRight()
+                    self.turnRight()
+                elif(self.direction == directions.UP):
+                    self.turnLeft()
+
+                elif(self.direction == directions.DOWN):
+                    self.turnRight()
+
+            elif((self.localDestination[1] + 1) == self.location[1]):
+                if(self.direction == directions.LEFT):
+                    self.turnRight()
+                    self.turnRight()
+                elif(self.direction == directions.RIGHT):
+                    return
+                elif(self.direction == directions.UP):
+                    self.turnRight()
+                elif(self.direction == directions.DOWN):
+                    self.turnLeft()
+
+        if(self.location[1] == self.localDestination[1]):
+            if((self.localDestination[0] + 1) == self.location[0]):
+                if(self.direction == directions.LEFT):
+                    self.turnRight()
+                elif(self.direction == directions.RIGHT):
+                    self.turnLeft()
+                elif(self.direction == directions.UP):
+                    return
+                elif(self.direction == directions.DOWN):
+                    self.turnRight()
+                    self.turnRight()
+
+            elif((self.localDestination[0] - 1) == self.location[0]):
+                if(self.direction == directions.LEFT):
+                    self.turnLeft()
+                elif(self.direction == directions.RIGHT):
+                    self.turnRight()
+                elif(self.direction == directions.UP):
+                    self.turnRight()
+                    self.turnRight()
+                elif(self.direction == directions.DOWN):
+                    return
+        
+        else:
+            self.graph()
+
+
 
     def run(self):
         '''
@@ -242,11 +365,20 @@ class Navigator(threading.Thread):
 
             self.processLine()
             stop = self.detect()
+
             if(stop):
                 self.motors.stop()
                 if(self.destinationQueue.empty()):
+                    #if no more destinations terminate thread
                     break
                 else:
+                    self.location = self.localDestination
                     self.localDestination = self.destinationQueue.get()
+                    self.turningLogic()
+
+
+
             else:
                 self.setMotors()
+
+        

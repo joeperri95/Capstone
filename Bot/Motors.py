@@ -4,7 +4,10 @@ import time
 import gpiozero
 
 class Motors():
-
+	'''
+	class that manages both motors
+	'''
+	
 	def __init__(self):
 		self.M1 = gpiozero.PhaseEnableMotor(17, 18)
 		self.M2 = gpiozero.PhaseEnableMotor(6, 13)

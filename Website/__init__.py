@@ -87,6 +87,7 @@ def createApp():
         except TimeoutError as e:
             pass
         finally:
+            print (serialObject)
             return render_template('track.html', title="Current", caption="Now Serving",orders=serialObject)
             sock.close()
 

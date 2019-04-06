@@ -5,6 +5,7 @@ import serial
 import threading
 import time
 import queue
+import utils
 
 DELAY = 1
 
@@ -41,14 +42,18 @@ class Dispensor():
                         if(ord(echo) == 255):
                                 return False
 
-                        response = self.conn.read()
-                        #print(ord(response))
-                        if(ord(response) == 5):
-                                print('done')
-                                return True
+                        while(True):
+                                response = self.conn.read()
+                                #print(ord(response))
+                                if(ord(response) == 5):
+                                        print('done')
+                                        return True
 
-                        elif(ord(echo) == 255):
-                                return False
+                                elif(ord(response) == 254):
+                                        utils.espeak('hey buddy I dont have all day')
+
+                                elif(ord(echo) == 255):
+                                        return False
 
 
 
@@ -71,13 +76,18 @@ class Dispensor():
                         if(ord(echo) == 255):
                                 return False
 
-                        response = self.conn.read()
-                        if(ord(response) == 5):
-                                return True
+                        while(True):
+                                response = self.conn.read()
+                                #print(ord(response))
+                                if(ord(response) == 5):
+                                        print('done')
+                                        return True
 
-                        elif(ord(echo) == 255):
-                                return False
+                                elif(ord(response) == 254):
+                                        utils.espeak('hey buddy I dont have all day')
 
+                                elif(ord(echo) == 255):
+                                        return False
 
 
                 except serial.SerialException as e:
@@ -98,12 +108,20 @@ class Dispensor():
                         if(ord(echo) == 255):
                                 return False
 
-                        response = self.conn.read()
-                        if(ord(response) == 5):
-                                return True
+                        while(True):
+                                response = self.conn.read()
+                                #print(ord(response))
+                                if(ord(response) == 5):
+                                        print('done')
+                                        return True
 
-                        elif(ord(echo) == 255):
-                                return False
+                                elif(ord(response) == 254):
+                                        utils.espeak('hey buddy I dont have all day')
+
+                                elif(ord(echo) == 255):
+                                        return False
+
+
 
 
 

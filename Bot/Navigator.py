@@ -135,8 +135,7 @@ class Navigator(threading.Thread):
 
     def processLine(self):
         
-        try:
-            
+        try: 
             #threshold by hsv value
             r = cv2.inRange(self.hsv, (RED_H_LOW, RED_S_LOW, RED_V_LOW), (RED_H_HIGH ,RED_S_HIGH, RED_V_HIGH))
             g = cv2.inRange(self.hsv, (GREEN_H_LOW, GREEN_S_LOW, GREEN_V_LOW), (GREEN_H_HIGH, GREEN_S_HIGH, GREEN_V_HIGH))
@@ -165,6 +164,7 @@ class Navigator(threading.Thread):
 
                     #if no contour put center in center of screen
                     if(M["m00"] == 0):
+                        raise Exception("line lost")
                         cx = int(self.w / 2)
                         cy = int(self.h / 2)
                     else:    

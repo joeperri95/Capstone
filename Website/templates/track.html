@@ -3,7 +3,8 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
       <th scope="col">Station</th>
       <th scope="col">Drink</th>
     </tr>
@@ -11,7 +12,8 @@
   <tbody>
     {% for order in orders %}
       <tr>
-        <td>{{order.name}}</td>
+        <td>{{order.firstname}}</td>
+        <td>{{order.lastname}}</td>
         <td>{{order.station}}</td>
         <td>{{order.drink}}</td>
       </tr>

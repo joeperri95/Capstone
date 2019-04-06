@@ -64,13 +64,6 @@ def createApp():
     @app.route('/track')
     def track():
 
-        # if (queueNotempty):
-        #     return "first In Queue page with info"
-        # else if (queueEmpty):
-        #     return "not serving anyone"
-        # else:
-        #     return "error, notify team"
-
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         res = ""

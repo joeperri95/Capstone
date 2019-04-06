@@ -15,7 +15,13 @@
         <td>{{order.firstname}}</td>
         <td>{{order.lastname}}</td>
         <td>{{order.station}}</td>
-        <td>{{order.drink}}</td>
+        {% if order.drink == 1%}
+          <td>Orange Juice</td>
+        {%elif order.drink == 2%}
+          <td>Ginger Ale</td>
+        {%else%}
+          <td>Mimosa</td>
+        {%endif%}
       </tr>
     {% endfor %}
   </tbody>

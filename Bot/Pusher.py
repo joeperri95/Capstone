@@ -62,14 +62,11 @@ class Pusher(threading.Thread):
                     getFirst = 0
 
                     tempQueue = queue.Queue()
+                    order = []
 
                     while(not self.serverQueue.empty()):
-                        if(getFirst == 0):
-                            getFirst = 1
-                            order = self.serverQueue.get()
-                            tempQueue.put(order)
-                        else:
                             temp = self.serverQueue.get()
+                            order.append(temp)
                             tempQueue.put(temp)
 
                     while(not tempQueue.empty()):
@@ -77,7 +74,7 @@ class Pusher(threading.Thread):
 
                     self.serverLock.release()
                     
-                    if(getFirst == 1):
+                    if(not self.serverQueue.empty()):
                         serializedObject = pickle.dumps(order)
                         self.sock.send(serializedObject)
                         self.sock.close()

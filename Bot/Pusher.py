@@ -13,7 +13,6 @@ class Pusher(threading.Thread):
     def __init__(self, PORT, serverQueue, serverLock):
         '''
         takes port number, server queue object and corresponding mutex
-
         '''
         self.address = ('localhost', PORT)
         self.sock = None 
@@ -66,7 +65,16 @@ class Pusher(threading.Thread):
 
                     while(not self.serverQueue.empty()):
                             temp = self.serverQueue.get()
-                            order.append(temp)
+                            
+                            temp2 = temp
+                            if(temp2['drink'] == '1'):
+                                temp2['drink'] = 'orange juice'
+                            elif(temp2['drink'] == '2'):
+                                temp2['drink'] = 'ginger ale'
+                            elif(temp2['drink'] == '3'):
+                                temp2['drink'] = 'mimosa'
+
+                            order.append(temp2)
                             tempQueue.put(temp)
 
                     while(not tempQueue.empty()):

@@ -17,9 +17,9 @@
         <td>{{order.station}}</td>
         {% if order.drink == 1 %}
           <td>Orange Juice</td>
-        {% if order.drink == 2 %}
+        {% elif order.drink == 2 %}
           <td>Ginger Ale</td>
-        {% if order.drink == 3 %}
+        {% elif order.drink == 3 %}
           <td>Mimosa</td>
         {% endif %}
       </tr>

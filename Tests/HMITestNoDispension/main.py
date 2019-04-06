@@ -22,12 +22,14 @@ def main():
     listenerThread.start()
     pusherThread.start()
 
+    currTime = time.time()
+
     while(True):
-        time.sleep(1)
-        ql.acquire()
-        if(not q.empty()):
-            q.get()
-        ql.release()
+        if(currTime >= time.time() + 1000):    
+            ql.acquire()
+            if(not q.empty()):
+                q.get()
+            ql.release()
 
     listenerThread.join()
     pusherThread.join()

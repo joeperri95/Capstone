@@ -1,16 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
-
-<div class="cta container rounded text-center text-white">
-  <blockquote class="blockquote">
-    <h1 class="display-1 mb-0">ROBOSERVE</h1>
-    <footer class="blockquote-footer text-white text-center">{{caption}}</footer>
-  </blockquote>
-
-  <div class="row">
-    <div class="col">{{FN}}</div>
-    <div class="col">{{LN}}</div>
-    <div class="col">{{LOC}}</div>
-    <div class="col">{{DRINK}}</div>
-  </div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Station</th>
+      <th scope="col">Drink</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+      <tr>
+        <td>{{order.name}}</td>
+        <td>{{order.station}}</td>
+        <td>{{order.drink}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

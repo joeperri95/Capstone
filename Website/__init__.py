@@ -87,11 +87,6 @@ def createApp():
 
                 if(data):
                     serialObject = pickle.loads(data)
-                    # res = res + "<ul><li>{}</li><li>{}</li><li>{}</li><li>{}</li></ul>"\
-                    #     .format(serialObject['firstname'],\
-                    #         serialObject['lastname'],\
-                    #         serialObject['station'],\
-                    #         serialObject['drink'])
                 else:
                     break
 
@@ -99,7 +94,7 @@ def createApp():
         except TimeoutError as e:
             pass
         finally:
-            # return render_template('track.html', title="Current", caption="Now Serving", FN=serialObject['firstname'], LN=serialObject['lastname'], LOC=serialObject['station'], DRINK=serialObject['drink'])
+            return render_template('track.html', title="Current", caption="Now Serving",orders=serialObject)
             sock.close()
 
     @app.route('/project')

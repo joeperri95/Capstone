@@ -55,7 +55,7 @@ class Navigator(threading.Thread):
         #rip
         #self.motors = Motors.Motors()
 
-        self.leds = LEDmanager.NavLEDmanager()
+        self.leds = LEDManager.NavLEDmanager()
 
         #image related fields
         self.cap = cv2.VideoCapture(0)
@@ -83,6 +83,8 @@ class Navigator(threading.Thread):
     def __del__(self):
         try:
             self.cap.release()
+        except AttributeError as e:
+            pass
         except NameError as e:
             #if class is never initialized cap will not be created
             pass

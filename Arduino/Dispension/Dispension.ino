@@ -1,7 +1,12 @@
+#include <QTRSensors.h>
+
 int pump1 = 9; //Orange Juice
 int pump2 = 10; //Ginger Ale
-int cupsensor = A0;
 int r = 0; //Recieved Order
+
+QTRSensors qtr;
+const uint8_t SensorCount = 1;
+uint16_t sensorValues[SensorCount];
 
 void setup() {
   Serial.begin(9600);
@@ -11,7 +16,8 @@ void setup() {
   digitalWrite(pump1,LOW);
   digitalWrite(pump2,LOW);
 
-  pinMode(cupsensor,INPUT);
+  qtr.setTypeRC();
+  qtr.setSensorPins((const uint8_t[]){3}, SensorCount);
   
 }
 
@@ -44,43 +50,46 @@ void loop(){
 
 
 void oj(){
-  delay(20000);
-  if(analogRead(cupsensor) < 15){
-    Serial.write(-2);
-  }
-  else{
+  delay(5000);
+  qtr.read(sensorValues);
+  if(sensorValues[0] < 2000){
     digitalWrite(pump1,HIGH);
     delay(32000);
     digitalWrite(pump1,LOW);
     Serial.write(5);
   }
+  else{
+    Serial.write(-2);
+  }
 }
 
 
 void ga(){
-  delay(20000);
-  if(analogRead(cupsensor) < 15){
-    Serial.write(-2);
-  }
-  else{
+  delay(5000);
+  qtr.read(sensorValues);
+  if(sensorValues[0] < 2000){
     digitalWrite(pump2,HIGH);
     delay(60000);
     digitalWrite(pump2,LOW);
     Serial.write(5);
   }
+  else{
+    Serial.write(-2);
+  }
 }
 
 void mimosa(){
-  delay(20000);
-  if(analogRead(cupsensor) < 15){
-    Serial.write(-2);
-  }
-  else{
+  delay(5000);
+  qtr.read(sensorValues);
+  if(sensorValues[0] < 2000){
     digitalWrite(pump1,HIGH);
     digitalWrite(pump2,HIGH);
     delay(24000);
     digitalWrite(pump1,LOW);
     digitalWrite(pump2,LOW);
     Serial.write(5);
+  }
+  else{
+    Serial.write(-2);
   }
 }

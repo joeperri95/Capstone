@@ -7,7 +7,7 @@ class NavLEDmanager():
     def __init__(self):
         self.leftLED = gp.LED(24) # green
         self.rightLED = gp.LED(12) # green
-        self.stopLED() = gp.LED(13)
+        self.stopLED = gp.LED(13)
 
     def right(self):
         self.rightLED.on()

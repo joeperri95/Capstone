@@ -23,7 +23,7 @@ import numpy as np
 import os
 #import Motors
 import directions
-import LEDmanager
+import LEDManager
 
 #tunable parameters
 RED_H_LOW = 120
@@ -48,7 +48,7 @@ YELLOW_V_LOW = 200
 YELLOW_V_HIGH = 255    
 
 class Navigator(threading.Thread):
-    def __init__(self, destination,opt=directions.UP, location=(1,1), debug=False):
+    def __init__(self, destination,direction=directions.UP, location=(1,1), debug=False):
         threading.Thread.__init__(self)
 
         #motor controller class

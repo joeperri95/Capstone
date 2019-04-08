@@ -2,7 +2,7 @@
 
 import gpiozero
 import serial
-import threading
+simport threading
 import time
 import queue
 from . import utils
@@ -53,8 +53,6 @@ class Dispensor():
 
                                 elif(ord(echo) == 255):
                                         return False
-
-
 
                 except serial.SerialException as e:
                         print(e)
@@ -119,10 +117,6 @@ class Dispensor():
 
                                 elif(ord(echo) == 255):
                                         return False
-
-
-
-
 
                 except serial.SerialException as e:
                         print(e)

@@ -7,14 +7,14 @@ import os
 import time
 import sys
 
-import Navigator
-import botstates
-import Dispensor
-import Listener
-import Pusher
-import directions
-import utils
-import Motors
+from . import Navigator
+from . import botstates
+from . import Dispensor
+from . import Listener
+from . import Pusher
+from . import directions
+from . import LEDManager
+#import Motors
 
 listenerPort = 12345
 pusherPort = 12346
@@ -33,6 +33,7 @@ class Bot(threading.Thread):
         self.state = botstates.IDLE
         self.prevState = botstates.IDLE
 
+        self.leds = LEDManager.BotLEDManager()
         self.navigator = Navigator.Navigator(directions.getDir(direction), location)
         self.dispensor = Dispensor.Dispensor()
         self.listener = Listener.Listener(listenerPort, self.serverQueue, self.serverLock)
@@ -51,8 +52,7 @@ class Bot(threading.Thread):
                 self.currentOrder = self.serverQueue.get(block=True)
                 
                 if(self.currentOrder.location != self.navigator.getDestination()):
-                    self.destination = self.currentOrder.location
-                    
+                    self.destination = self.currentOrder.location    
                     self.prevState = self.state
                     self.state = botstates.MOTION
 
@@ -78,7 +78,7 @@ class Bot(threading.Thread):
                 if(self.currentOrder['drink'] == '1'):
                     resp = self.dispensor.orangejuice()
                     if(resp):
-                        utils.espeak('your orange juice')
+                        self.leds.done()
                         self.prevState = self.state
                         self.state = botstates.IDLE
                     else:
@@ -86,7 +86,7 @@ class Bot(threading.Thread):
                         self.state = botstates.ERROR
 
                 elif(self.currentOrder['drink'] == '2'):
-                    utils.espeak('your ginger ale')
+                    self.leds.done()
                     resp = self.dispensor.gingerAle()
                     if(resp):
                         self.prevState = self.state
@@ -96,7 +96,7 @@ class Bot(threading.Thread):
                         self.state = botstates.ERROR
 
                 elif(self.currentOrder['drink'] == '3'):
-                    utils.espeak('your mimosa')
+                    self.leds.done()
                     resp = self.dispensor.mimosa()
                     if(resp):
                         self.prevState = self.state
@@ -107,9 +107,9 @@ class Bot(threading.Thread):
 
             elif(self.state == botstates.LINE_LOST):
                 #perform recovery
-                utils.espeak('line has been lost')
-                pass
+                #utils.espeak('"line has been lost"')
+                self.leds.blinkAll()
 
             elif(self.state == botstates.ERROR):
-                utils.espeak('error dispensing drink')
-                pass
+                #utils.espeak('"error dispensing drink"')
+                self.leds.blinkAll()

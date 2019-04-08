@@ -21,9 +21,9 @@ import queue
 import cv2
 import numpy as np
 import os
-import Motors
-import directions
-from utils import espeak
+#import Motors
+from . import directions
+from . import LEDmanager
 
 #tunable parameters
 RED_H_LOW = 120
@@ -40,7 +40,6 @@ GREEN_S_HIGH = 255
 GREEN_V_LOW = 115
 GREEN_V_HIGH = 255
 
-
 YELLOW_H_LOW = 0
 YELLOW_H_HIGH = 40
 YELLOW_S_LOW = 150
@@ -53,7 +52,10 @@ class Navigator(threading.Thread):
         threading.Thread.__init__(self)
 
         #motor controller class
-        self.motors = Motors.Motors()
+        #rip
+        #self.motors = Motors.Motors()
+
+        self.leds = LEDmanager.NavLEDmanager()
 
         #image related fields
         self.cap = cv2.VideoCapture(0)
@@ -200,13 +202,14 @@ class Navigator(threading.Thread):
             return False
 
         if(cv2.contourArea(max(self.yc,key=cv2.contourArea)) > minArea):
-            espeak('stop')
+            self.leds.stop()
             return True
         
         return False
     
     def turnLeft(self):
-        espeak('turn left')
+        #espeak('turn left')
+        self.leds.blinkLeft()
         if(self.direction == directions.UP):
             
             self.direction = directions.LEFT
@@ -226,7 +229,8 @@ class Navigator(threading.Thread):
         
 
     def turnRight(self):
-        espeak("turn right")
+        #espeak("turn right")
+        self.leds.blinkRight()
         if(self.direction == directions.UP):
             
             self.direction = directions.RIGHT
@@ -249,52 +253,55 @@ class Navigator(threading.Thread):
 
         if(self.direction == directions.UP):
             if(self.center[0] > int(self.w * 0.75)):
-                espeak('slight left')
-                self.motors.leftTimed(1, 0.1)
-
+                #espeak('slight left')
+                #self.motors.leftTimed(1, 0.1)
+                self.leds.left()
             elif(self.center[0] < int(self.w * 0.25)):
-                espeak('slight right')
-                self.motors.rightTimed(1, 0.1)
-            
+                #espeak('slight right')
+                #self.motors.rightTimed(1, 0.1)
+                self.leds.right()
             else:
-                self.motors.forwardTimed(1, 0.1)
-        
+                #self.motors.forwardTimed(1, 0.1)
+                self.leds.straight()
+
         elif(self.direction == directions.DOWN):
             if(self.center[0] > int(self.w * 0.75)):
-                espeak('slight right')
-                self.motors.leftTimed(1, 0.1)
-
+                #espeak('slight right')
+                #self.motors.leftTimed(1, 0.1)
+                self.leds.left()
             elif(self.center[0] < int(self.w * 0.25)):
-                espeak('slight left')
-                self.motors.rightTimed(1, 0.1)
-            
+                #espeak('slight left')
+                #self.motors.rightTimed(1, 0.1)
+                self.leds.right()
             else:
-                self.motors.forwardTimed(1, 0.1)
-        
+                #self.motors.forwardTimed(1, 0.1)
+                self.leds.straight()
 
         elif(self.direction == directions.LEFT):
             if(self.center[1] > int(self.h * 0.75)):
-                espeak('slight left')
-                self.motors.leftTimed(1, 0.1)
-
+                #espeak('slight left')
+                #self.motors.leftTimed(1, 0.1)
+                self.leds.left()
             elif(self.center[1] < int(self.h * 0.25)):
-                espeak('slight right')
-                self.motors.rightTimed(1, 0.1)
-            
+                #espeak('slight right')
+                #self.motors.rightTimed(1, 0.1)
+                self.leds.right()
             else:
-                self.motors.forwardTimed(1, 0.1)
+                self.leds.straight()
+                #self.motors.forwardTimed(1, 0.1)
 
         elif(self.direction == directions.RIGHT):
             if(self.center[1] > int(self.h * 0.75)):
-                espeak('slight right')
-                self.motors.leftTimed(1, 0.1)
-
+                #espeak('slight right')
+                #self.motors.leftTimed(1, 0.1)
+                self.leds.left()
             elif(self.center[1] < int(self.h * 0.25)):
-                espeak('slight left')
-                self.motors.rightTimed(1, 0.1)
-            
+                #espeak('slight left')
+                #self.motors.rightTimed(1, 0.1)
+                self.leds.right()
             else:
-                self.motors.forwardTimed(1, 0.1)
+                self.leds.straight()
+                #self.motors.forwardTimed(1, 0.1)
             
     def turningLogic(self):
         '''

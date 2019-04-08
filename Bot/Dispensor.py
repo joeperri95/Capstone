@@ -2,10 +2,9 @@
 
 import gpiozero
 import serial
-simport threading
+import threading
 import time
 import queue
-from . import utils
 
 DELAY = 1
 

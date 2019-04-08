@@ -22,8 +22,8 @@ import cv2
 import numpy as np
 import os
 #import Motors
-from . import directions
-from . import LEDmanager
+import directions
+import LEDmanager
 
 #tunable parameters
 RED_H_LOW = 120

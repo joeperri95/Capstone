@@ -7,13 +7,13 @@ import os
 import time
 import sys
 
-from . import Navigator
-from . import botstates
-from . import Dispensor
-from . import Listener
-from . import Pusher
-from . import directions
-from . import LEDManager
+import Navigator
+import botstates
+import Dispensor
+import Listener
+import Pusher
+import directions
+import LEDManager
 #import Motors
 
 listenerPort = 12345

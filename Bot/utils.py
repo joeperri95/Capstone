@@ -4,4 +4,4 @@
 import os
 
 def espeak(string):
-    os.popen("espeak " + string)
+    os.popen('espeak "' + string + '"')

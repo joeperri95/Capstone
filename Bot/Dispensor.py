@@ -43,7 +43,7 @@ class Dispensor():
 
                         while(True):
                                 response = self.conn.read()
-                                #print(ord(response))
+                                print(ord(response))
                                 if(ord(response) == 5):
                                         print('done')
                                         return True
@@ -77,7 +77,7 @@ class Dispensor():
 
                         while(True):
                                 response = self.conn.read()
-                                #print(ord(response))
+                                print(ord(response))
                                 if(ord(response) == 5):
                                         print('done')
                                         return True
@@ -109,7 +109,7 @@ class Dispensor():
 
                         while(True):
                                 response = self.conn.read()
-                                #print(ord(response))
+                                print(ord(response))
                                 if(ord(response) == 5):
                                         print('done')
                                         return True

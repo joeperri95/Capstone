@@ -5,7 +5,7 @@ import serial
 import threading
 import time
 import queue
-import utils
+from . import utils
 
 DELAY = 1
 
@@ -49,7 +49,7 @@ class Dispensor():
                                         return True
 
                                 elif(ord(response) == 254):
-                                        utils.espeak('hey buddy I dont have all day')
+                                        utils.espeak("hey buddy I dont have all day")
 
                                 elif(ord(echo) == 255):
                                         return False
@@ -83,7 +83,7 @@ class Dispensor():
                                         return True
 
                                 elif(ord(response) == 254):
-                                        utils.espeak('hey buddy I dont have all day')
+                                        utils.espeak("hey buddy I dont have all day")
 
                                 elif(ord(echo) == 255):
                                         return False
@@ -115,7 +115,7 @@ class Dispensor():
                                         return True
 
                                 elif(ord(response) == 254):
-                                        utils.espeak('hey buddy I dont have all day')
+                                        utils.espeak("hey buddy I dont have all day")
 
                                 elif(ord(echo) == 255):
                                         return False

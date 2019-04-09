@@ -3,8 +3,8 @@
 import sys
 sys.path.append('/home/pi/Capstone')
 
-import Bot
-import directions
+from Bot import Robot
+#import directions
 import queue
 import threading
 
@@ -13,9 +13,8 @@ def main():
     q = queue.Queue()
     ql = threading.Lock()
     loc = (1,1)
-    direction = directions.UP
-
-    bot = Bot.Bot(q, ql, loc, direction)
+    direction = 1
+    bot = Robot.Bot(q, ql, loc, direction)
     bot.start()
     bot.join()
 

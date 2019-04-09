@@ -22,8 +22,8 @@ import cv2
 import numpy as np
 import os
 #import Motors
-import directions
-import LEDManager
+from . import directions
+from . import LEDManager
 
 #tunable parameters
 RED_H_LOW = 120
@@ -64,7 +64,7 @@ class Navigator(threading.Thread):
         self.hsv = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
         
         self.h, self.w = self.frame.shape[:2]
-        self.direction = directions.getDir(opt)
+        self.direction = directions.getDir(direction)
 
         self.red = np.zeros((self.h, self.w, 3), dtype=np.uint8)
         self.green = np.zeros((self.h, self.w, 3), dtype=np.uint8)
@@ -77,7 +77,7 @@ class Navigator(threading.Thread):
         #these variables determine location of machine
         self.location = location
         self.globalDestination = destination
-        self.destinationQueue = queue.Quexue()
+        self.destinationQueue = queue.Queue()
         self.graph()
 
     def __del__(self):

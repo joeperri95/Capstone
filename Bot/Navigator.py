@@ -161,7 +161,7 @@ class Navigator(threading.Thread):
             _, self.gc, _ = cv2.findContours(self.green, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 
-            if(self.direction == directions.UP or self.direction == direction.DOWN):
+            if(self.direction == directions.UP or self.direction == directions.DOWN):
                 if(self.rc):
                     rcmax = max(self.rc, key=cv2.contourArea)
                     M = cv2.moments(rcmax)

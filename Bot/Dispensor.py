@@ -5,6 +5,7 @@ import serial
 import threading
 import time
 import queue
+import utils
 
 DELAY = 1
 
